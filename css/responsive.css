@@ -1,0 +1,161 @@
+@media (max-width: 768px) {
+  .hnbgu-logo {
+    border: 1px solid rgb(221, 220, 220);
+  }
+  .hnbgu-logo .logo {
+    width: 80px;
+  }
+  .hnbgu-logo .brand h1 {
+    font-size: 14px;
+  }
+  .hnbgu-logo .brand span {
+    font-size: 12px;
+  }
+  .fa-bars {
+    font-size: 18px;
+  }
+  .hnbgu-navbar {
+    padding: 10px 0px;
+    width: 100%;
+    /* position: relative; */
+    /* background-color: #333; */
+  }
+  .hnbgu-navbar a {
+    color: #fff;
+  }
+  .bg-md-dark {
+    background: #333;
+    color: #fff;
+    position: relative;
+  }
+  .ham-default {
+    display: block;
+  }
+  .hnbgu-navbar .hnbgu-nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    background: #fff;
+    z-index: 100;
+    right: 0%;
+    top: 100%;
+    padding: 10px;
+  }
+  .hnbgu-nav-links a {
+    color: #333;
+    padding: 5px 0px;
+    text-align: center;
+  }
+  .hide-navbar {
+    display: none !important;
+  }
+  .main-banner {
+    height: 200px;
+    width: 100%;
+    background-size: 100%;
+    background-position: center;
+    /* margin: 20px; */
+  }
+  .sub-banner {
+    height: 120px;
+  }
+  .owl-next,
+  .owl-prev {
+    top: 40%;
+  }
+  .tcc-img {
+    flex-wrap: wrap !important;
+  }
+  .tcc-img img {
+    height: auto;
+    width: 100%;
+  }
+  .tcc-img p {
+    height: auto;
+    padding: 8px 5px;
+  }
+  .event-container .event-box {
+    height: auto;
+  }
+  .event-img {
+    height: 160px;
+  }
+  .event-meta span {
+    /* display: block; */
+    font-size: 10px;
+  }
+  .event-box .pd-event {
+    padding: 2px;
+  }
+  .event-meta {
+    padding: 4px 8px;
+  }
+  .event-description {
+    height: auto;
+    padding: 0px 5px;
+  }
+  .event-description span {
+    font-size: 12px;
+  }
+  .reg-note p {
+    text-align: justify;
+    margin: 5px 0px;
+  }
+  .reg-note a {
+    margin: 1rem 0rem;
+  }
+  .footer {
+    padding: 15px;
+  }
+  .footer h4 {
+    font-size: 20px;
+  }
+  .event-join {
+    padding: 5px;
+  }
+  .footer-bottom {
+    flex-wrap: wrap;
+  }
+  .first-box,
+  .last-box {
+    text-align: center;
+    margin: 8px 0px;
+  }
+  .form-wrap {
+    padding: 35px 30px;
+  }
+  .btn-block {
+    padding: 8px;
+    font-size: 20px;
+  }
+  .form {
+    padding: 2px 10px;
+  }
+  .contact-form {
+    margin: 10px;
+  }
+  .contact-form textarea {
+    height: 150px;
+  }
+  .hnb-about {
+    padding: 0px 20px;
+  }
+  .hnb-about p {
+    font-size: 12px;
+    color: #333;
+    font-weight: 400;
+  }
+  .hnb-about h1 {
+    font-size: 18px;
+  }
+  .item-hnb {
+    height: 80px !important;
+  }
+  .event-container-details .event-poster {
+    height: 200px;
+  }
+  .event-container-details .table td {
+    font-size: 12px;
+  }
+}
