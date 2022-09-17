@@ -1,65 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      HNBGU COUNCILS & CLUBS | Hemvati Nandan Bahuguna Garhwal University
-    </title>
-    <!-- Website Favicon -->
-    <link
-      rel="shortcut icon"
-      href="images/HNBG-new-logo.png"
-      type="image/x-icon"
-    />
-    <!-- Bootstrap cdn -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"
-    />
-    <!-- Fontawesome cdn -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
-    <!-- Owl carousel -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
-      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- main CSS file -->
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+<?php include "master.php"?>
+<?php
+      if(isset($_POST['submit'])){
 
-    <!-- script file -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <!-- main js file -->
-    <script src="js/main.js" defer></script>
-  </head>
-  <body>
+        $regId = 'HNB'.date('Y').rand(1000,9999); //Student ID Generation
+
+        $firstName = $_POST['fname'];
+        $lastName = $_POST['lname'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $dept = $_POST['department'];
+        $year = $_POST['year'];
+        $sem = $_POST['semester'];
+        $council = $_POST['council'];
+        $club=$_POST['club'];
+        $social = $_POST['social'];
+        $aoi = $_POST['aoi'];
+        $password = $_POST['password'];
+        $date = date('Y-m-d');
+
+        $sql = "INSERT INTO `users` (`reg_id`, `firstname`, `lastname`, `email`, `phone`, `department`, `year`, `semester`, `council`, `club`, `social`, `aoi`, `password`,`verified`, `date`) 
+                VALUES ('{$regId}', '{$firstName}', '{$lastName}', '{$email}', '{$phone}', '{$dept}', '{$year}', '{$sem}', '{$council}', '{$club}', '{$social}', '{$aoi}', '{$password}',0, '{$date}')";
+        $result = mysqli_query($conn,$sql);  
+
+        if($result){
+          redirect('registration.php');
+        }else{
+          die();
+        }
+    }
+?>
     <div class="form-wrap">
       <div class="container shadow">
         <div class="row">
@@ -72,19 +41,19 @@
           id="signup"
         >
           <div class="col-md-12">
-            <form action="" class="form p-md-5">
+            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" class="form p-md-5">
               <div class="row">
                 <div class="col-md-6 mt-3 mt-3">
                   <label for="username"
                     >Firstname<span class="imp-op">*</span></label
                   >
-                  <input required type="text" class="form-control" />
+                  <input required type="text" name="fname" class="form-control" />
                 </div>
                 <div class="col-md-6 mt-3 mt-3">
                   <label for="username"
                     >Lastname<span class="imp-op">*</span></label
                   >
-                  <input required type="text" class="form-control" />
+                  <input required type="text" name="lname" class="form-control" />
                 </div>
               </div>
               <div class="row">
@@ -92,13 +61,13 @@
                   <label for="password"
                     >Email<span class="imp-op">*</span></label
                   >
-                  <input required type="text" class="form-control" />
+                  <input required type="text" name="email" class="form-control" />
                 </div>
                 <div class="col-md-6 mt-3">
                   <label for="password"
                     >Contact Number<span class="imp-op">*</span></label
                   >
-                  <input required type="number" class="form-control" />
+                  <input required type="number" name="phone" class="form-control" />
                 </div>
                 <!-- <input required type="text" class="form-control"> -->
               </div>
@@ -107,7 +76,7 @@
                   <label for="password"
                     >Department<span class="imp-op">*</span></label
                   >
-                  <input required type="text" class="form-control" />
+                  <input required type="text" name="department" class="form-control" />
                 </div>
                 <div class="col-md-3 mt-3">
                   <label for="password"
@@ -124,7 +93,7 @@
                   <label for="password"
                     >Semester<span class="imp-op">*</span></label
                   >
-                  <select name="year" id="year" class="form-control">
+                  <select name="semester" id="semester" class="form-control">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -248,7 +217,7 @@
                     >Social Media Link
                     <span class="imp-op">(optional)</span></label
                   >
-                  <input type="url" class="form-control" />
+                  <input type="url" name="social" class="form-control" />
                 </div>
                 <div class="col-md-6 mt-3">
                   <label for="aoi"
@@ -267,6 +236,7 @@
                   <input
                     required
                     type="password"
+                    name="password"
                     class="form-control"
                     id="pass"
                   />
@@ -294,18 +264,19 @@
               </div>
               <div class="row">
                 <div class="col-md-12 mb-3">
-                  <input
+                  <button
                     required
+                    name="submit"
                     type="submit"
-                    value="Submit"
                     id="reg-submit"
                     class="form-control mt-4"
-                    disabled
-                  />
+                    disabled>
+                    Submit
+                  </button>
                 </div>
                 <div class="col-md-4">
                   <a
-                    href="index.html"
+                    href="index.php"
                     class="text-light nav-link bg-secondary border rounded text-center"
                     ><i class="fas fa-home"></i> Home</a
                   >
