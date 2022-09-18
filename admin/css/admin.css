@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300&family=Oswald:wght@700&display=swap");
+
+:root {
+  --hnbgu-color: rgb(0, 128, 0);
+  --hnbgu-text-color: #fff;
+}
+/* Author: Suraj Aswal | https://surajaswal.dev */
+* {
+  /* border: 1px solid #000; */
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+.pr-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pr-center-1 {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.bg-admin-page {
+  /* background-color: var(--hnbgu-color); */
+  height: 100vh;
+}
+.nav-color-bg a {
+  background-color: var(--hnbgu-color);
+}
+.form-box {
+  /* height: 400px; */
+  width: 300px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: -2px 2px 20px rgb(173, 173, 173);
+}
+.error-red {
+  color: red;
+  font-size: 12px;
+}
+.hnbgu-logo {
+  padding: 15px;
+}
+.hnbgu-logo .logo {
+  width: 90px;
+  margin-right: 15px;
+}
+.hnbgu-logo .brand h1 {
+  font-family: "Oswald", "sans-serif";
+  font-size: 18px;
+  line-height: 1.1;
+  margin-bottom: 0;
+}
+.hnbgu-logo .brand span {
+  /* display: block; */
+  /* text-align: center; */
+  position: relative;
+  padding: 0px 50px;
+  font-size: 14px;
+}
+.brand span::before,
+.brand span::after {
+  /* margin: 0px 5px; */
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 40px;
+  display: block;
+  height: 2px;
+  background: var(--hnbgu-color);
+}
+.brand span::after {
+  left: unset;
+  right: 0;
+}

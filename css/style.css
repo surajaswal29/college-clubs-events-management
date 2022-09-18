@@ -71,6 +71,32 @@
 .ham-default {
   display: none;
 }
+.profile-btn {
+  background-color: #0496da;
+  padding: 8px 10px;
+  display: inline-block;
+  color: #ffff !important;
+  text-transform: capitalize;
+  border-radius: 5px;
+  position: relative;
+}
+.profile-drop {
+  position: absolute;
+  background-color: #2c2c2c;
+  right: 0%;
+  top: 104%;
+  flex-flow: column;
+  width: 150px;
+  display: none;
+  z-index: 100;
+}
+.profile-drop a {
+  padding: 6px 8px;
+  margin: 0;
+}
+.profile-btn:hover .profile-drop {
+  display: flex;
+}
 /* main banner */
 #banner {
   position: relative;
@@ -88,7 +114,7 @@
   background-position: center;
 }
 .item-1 {
-  background-image: url("https://lh5.googleusercontent.com/p/AF1QipNGDKi9Tg7RNalTus20tqviJLPNww2V0QPG9Vmv=w1080-k-no");
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc8aLz2t_M0nunmlPfxerxRb1VOEuHRslzYw&usqp=CAU");
 }
 .item-2 {
   background-image: url("http://www.hnbgu.ac.in/sites/default/files/2020-04/IMG-20191212-WA0001%281%29.jpg");
@@ -247,6 +273,20 @@
   /* padding: 2px; */
   box-sizing: border-box;
   margin: 20px 0px;
+}
+.image-btn label {
+  background-color: #22b43b;
+  padding: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  width: 300px;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+}
+#image-details {
+  font-size: 14px;
 }
 .event-img {
   height: 144px;
@@ -447,7 +487,7 @@ label {
   width: 315px;
   /* height: 460px; */
   background: #fff;
-  border-radius: 20px;
+  border-radius: 5px;
   box-shadow: 0 2.8px 2.2px rgba(116, 114, 114, 0.034),
     0 6.7px 5.3px rgba(116, 114, 114, 0.034),
     0 10.5px 8px rgba(116, 114, 114, 0.034),
@@ -472,7 +512,7 @@ label {
   width: 100%;
   height: 34px;
   border: 1px solid #dbd8d8;
-  border-radius: 8px;
+  border-radius: 5px;
   padding-left: 6px;
   margin: 6px 0px;
   font-size: 14px;
@@ -544,6 +584,23 @@ label {
 }
 .lg-p {
   padding: 15px 0px;
+}
+
+.tick-img {
+  width: 150px;
+}
+.al-completed {
+  justify-content: center;
+}
+.image-preview {
+  width: 800px;
+  height: 400px;
+  border: 1px solid #3b3b3b;
+  border-style: dotted;
+  padding: 4px;
+}
+.image-preview img {
+  width: 100%;
 }
 #contact .address,
 #contact .contact,

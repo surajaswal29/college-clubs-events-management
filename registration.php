@@ -23,7 +23,7 @@
         $result = mysqli_query($conn,$sql);  
 
         if($result){
-          redirect('registration.php');
+          redirect('msg.php');
         }else{
           die();
         }
@@ -283,7 +283,7 @@
                 </div>
                 <div class="col-md-4 text-center lg-p">
                   <span>Already Registered?</span>
-                  <a href="login.html" class="text-center text-secondary">
+                  <a href="login.php" class="text-center text-secondary">
                     Login Here</a
                   >
                 </div>

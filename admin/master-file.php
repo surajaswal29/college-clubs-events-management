@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+    include "config.php" 
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      HNBGU COUNCILS & CLUBS | Hemvati Nandan Bahuguna Garhwal University
+      Admin | HNBGU COUNCILS & CLUBS | Hemvati Nandan Bahuguna Garhwal University
     </title>
     <!-- Website Favicon -->
     <link
@@ -39,8 +43,8 @@
       referrerpolicy="no-referrer"
     />
     <!-- main CSS file -->
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <!-- <link rel="stylesheet" href="css/responsive.css" /> -->
 
     <!-- script file -->
     <script
@@ -57,41 +61,6 @@
       referrerpolicy="no-referrer"
     ></script>
     <!-- main js file -->
-    <script src="js/main.js" defer></script>
+    <!-- <script src="js/main.js" defer></script> -->
   </head>
   <body>
-    <div class="main-wrap-login">
-      <div class="outer-wrap">
-        <h1>HNBGU Councils and Clubs</h1>
-
-        <form action="#" class="form">
-          <label for="email">Email</label>
-          <br />
-          <input type="email" name="email" id="email" placeholder="Email" />
-          <br />
-          <label for="password">Password</label>
-          <br />
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-          />
-          <br />
-          <input type="checkbox" name="check" id="check" />
-          <span class="rm-me">Remember Me</span>
-          <a href="#" class="fg-pa">Forgot Password?</a>
-          <br />
-          <button type="submit" class="btn">Log in</button>
-        </form>
-        <div class="terms mt-4 text-center">
-          <span>Not Registered Yet?</span>
-          <a href="registration.html" class="border rounded p-1"
-            >Register Now</a
-          >
-        </div>
-        <!-- <span class="err">Error: Username or Password does not match!</span> -->
-      </div>
-    </div>
-  </body>
-</html>

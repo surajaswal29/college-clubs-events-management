@@ -1,4 +1,7 @@
-<?php include "admin/config.php" ?>
+<?php 
+  session_start();
+  include "admin/config.php" 
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
