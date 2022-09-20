@@ -51,11 +51,11 @@
                 <div class="col-12">
                   <div id="hnbgu-clubs" class="hnbgu-clubs hnbgu-clubs-hide">
                     <ul>
-                      <li><a href="club-view.php" class="club-link text-dark"> Computer Science Club          </a> </li>
-                      <li><a href="club-view.php" class="club-link text-dark"> Electrical Club                </a>  </li>
-                      <li><a href="club-view.php" class="club-link text-dark"> Mechanical Club                </a>   </li>
-                      <li><a href="club-view.php" class="club-link text-dark"> Robotics and Instrumental Club </a>   </li>
-                      <li><a href="club-view.php" class="club-link text-dark"> Designing Club                 </a>  </li>
+                      <li><a href="clubs" class="club-link text-dark"> Computer Science Club          </a> </li>
+                      <li><a href="clubs" class="club-link text-dark"> Electrical Club                </a>  </li>
+                      <li><a href="clubs" class="club-link text-dark"> Mechanical Club                </a>   </li>
+                      <li><a href="clubs" class="club-link text-dark"> Robotics and Instrumental Club </a>   </li>
+                      <li><a href="clubs" class="club-link text-dark"> Designing Club                 </a>  </li>
                     </ul>
                   </div>
                 </div>

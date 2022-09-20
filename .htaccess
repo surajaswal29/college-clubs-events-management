@@ -7,3 +7,4 @@ RewriteRule ^contact?$ contact.php
 RewriteRule ^userlogout?$ user-logout.php
 RewriteRule ^login?$ login.php
 RewriteRule ^registration?$ registration.php
+RewriteRule ^clubs?$ club-view.php
