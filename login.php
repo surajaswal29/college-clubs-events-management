@@ -25,7 +25,7 @@
         </form>
         <div class="terms mt-4 text-center">
           <span>Not Registered Yet?</span>
-          <a href="registration.php" class="border rounded p-1"
+          <a href="registration" class="border rounded p-1"
             >Register Now</a
           >
         </div>
@@ -40,7 +40,7 @@
               if(mysqli_num_rows($output)>0){
                 $data = mysqli_fetch_assoc($output);
                 $_SESSION['user_name'] =  $data['firstname'];
-                redirect('index.php');
+                redirect('home');
               }else{
                 echo"<span class='err'>Error: Username or Password does not match!</span>";
               }

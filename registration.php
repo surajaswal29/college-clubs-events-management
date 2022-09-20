@@ -276,14 +276,14 @@
                 </div>
                 <div class="col-md-4">
                   <a
-                    href="index.php"
+                    href="home"
                     class="text-light nav-link bg-secondary border rounded text-center"
                     ><i class="fas fa-home"></i> Home</a
                   >
                 </div>
                 <div class="col-md-4 text-center lg-p">
                   <span>Already Registered?</span>
-                  <a href="login.php" class="text-center text-secondary">
+                  <a href="login" class="text-center text-secondary">
                     Login Here</a
                   >
                 </div>

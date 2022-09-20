@@ -1,0 +1,9 @@
+RewriteEngine On
+
+RewriteRule ^home?$ index.php
+RewriteRule ^eventlist?$ event-list.php
+RewriteRule ^about?$ about.php
+RewriteRule ^contact?$ contact.php
+RewriteRule ^userlogout?$ user-logout.php
+RewriteRule ^login?$ login.php
+RewriteRule ^registration?$ registration.php

@@ -16,12 +16,12 @@
         </div>
         <div class="col-md-7 pr-center-1 bg-md-dark">
           <nav class="hnbgu-navbar dp-sb">
-            <a href="index.php"><i class="fas fa-home"></i> Home</a>
+            <a href="home"><i class="fas fa-home"></i> Home</a>
             <a href="#" class="ham-default" id="ham-default"
               ><i class="fas fa-bars"></i
             ></a>
             <div class="hnbgu-nav-links hide-navbar" id="hnbgu-nav-links">
-              <a href="event-list.php">Events</a>
+              <a href="eventlist">Events</a>
               <!-- <a href="#">Councils & Clubs -->
               <!-- <div class="council-dropdown">
                   <a href="#">1</a>
@@ -32,8 +32,8 @@
                 </div> -->
               <!-- </a> -->
               <!-- <a href="#">Register</a> -->
-              <a href="about.php">About</a>
-              <a href="contact.php">Contact us</a>
+              <a href="about">About</a>
+              <a href="contact">Contact us</a>
               <?php
               if(isset($_SESSION['user_name'])){
               ?>
@@ -42,16 +42,16 @@
                     &nbsp;&nbsp;
                     <?php echo $_SESSION['user_name'] ?>
                     <div class="profile-drop">
-                        <a href="#" class="text-light"><i class="fa-solid fa-id-card"></i> View Profile</a>
-                        <a href="user-logout.php" class="text-light bg-secondary"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+                        <a href="view-profile.php" class="text-light"><i class="fa-solid fa-id-card"></i> View Profile</a>
+                        <a href="userlogout" class="text-light bg-secondary"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
                     </div>
               </div>
                 
               <?php
               }else{
               ?>
-              <a href="login.php">Login</a>
-              <a href="registration.php">Register</a>
+              <a href="login">Login</a>
+              <a href="registration">Register</a>
               <?php
               }
               ?>

@@ -21,6 +21,11 @@
   justify-content: end;
   align-items: center;
 }
+.pr-center-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .hnbgu-logo {
   padding: 15px;
 }
@@ -73,7 +78,7 @@
 }
 .profile-btn {
   background-color: #0496da;
-  padding: 8px 10px;
+  padding: 4px 10px;
   display: inline-block;
   color: #ffff !important;
   text-transform: capitalize;
@@ -90,6 +95,10 @@
   display: none;
   z-index: 100;
 }
+.club-link {
+  display: block;
+  text-decoration: none;
+}
 .profile-drop a {
   padding: 6px 8px;
   margin: 0;
@@ -101,7 +110,8 @@
 #banner {
   position: relative;
 }
-.main-banner {
+.main-banner,
+.club-banner {
   height: 420px;
   width: 100%;
   background-size: 100%;
@@ -259,8 +269,47 @@
   width: 100%;
   height: 100%;
 }
+.member-box {
+  /* padding: 10px; */
+  overflow: auto;
+  height: 400px;
+}
+.member-box::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+.member-box::-webkit-scrollbar {
+  width: 6px;
+  background-color: #fff;
+}
+.member-box::-webkit-scrollbar-thumb {
+  background-color: #3b3b3b;
+  height: 50px;
+}
+.member-box .single-member {
+  border: 1px solid #cfcecec5;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 8px;
+}
+.single-member img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+.single-member h5 {
+  font-size: 16px;
+}
+.single-member span:first-of-type {
+  font-size: 16px;
+  display: block;
+  margin-top: 5px;
+}
+.single-member span:last-of-type {
+  font-size: 12px;
+}
 /* event-container */
-.event-container h2 {
+.event-container h2,
+.club-member h2 {
   background: #333;
   color: #fff;
   padding: 5px;
