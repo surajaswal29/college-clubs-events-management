@@ -12,3 +12,4 @@ RewriteRule ^eventmanagement?$ event-management.php
 RewriteRule ^event_view?$ event-view.php
 RewriteRule ^alumni?$ alumni.php
 RewriteRule ^profile?$ view-profile.php
+RewriteRule ^verification?$ verification.php

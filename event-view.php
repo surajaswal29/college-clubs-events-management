@@ -14,9 +14,16 @@
             <div class="row mt-5 border py-3">
               <div class="col-md-12">
                 <div class="event-container-details">
+                  <?php
+                    $eventid = $_GET['event_id'];
+                    $sql_query = "SELECT * FROM `event-list` WHERE id= '{$eventid}'";
+                    $sql_output = mysqli_query($conn,$sql_query);
+
+                    $data = mysqli_fetch_assoc($sql_output);
+                  ?>
                   <div class="event-poster mb-3">
                     <img
-                      src="images/hackathon-1.jpg"
+                      src="images/<?php echo $data['event_image']; ?>"
                       alt="event poster"
                       title="Event Poster"
                     />
@@ -24,48 +31,27 @@
                   <table class="table table-bordered">
                     <tr>
                       <td>Event</td>
-                      <td>Hackathon 1.0</td>
+                      <td><?php echo $data['event_name']; ?></td>
                     </tr>
                     <tr>
                       <td>Venue</td>
                       <td>
-                        HEMVATI NANDAN BAHUGUNA GARHWAL UNIVERSITY, Chaursa
-                        Campus
+                      <?php echo $data['event_venue']; ?>
                       </td>
                     </tr>
                     <tr>
                       <td>Start Date</td>
-                      <td>01-07-2022</td>
+                      <td><?php echo $data['start_date']; ?></td>
                     </tr>
                     <tr>
                       <td>End Date</td>
-                      <td>02-07-2022</td>
+                      <td><?php echo $data['end_date']; ?></td>
                     </tr>
                   </table>
                   <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Veritatis itaque a accusamus asperiores reprehenderit?
-                    Maxime magni nam accusamus aperiam deleniti cum?
-                    Reprehenderit ipsum aut, repudiandae quasi, praesentium
-                    libero molestias culpa assumenda molestiae cupiditate
-                    veritatis sit facilis laborum soluta quia rem!
+                  <?php echo $data['description']; ?>
                   </p>
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Veritatis itaque a accusamus asperiores reprehenderit?
-                    Maxime magni nam accusamus aperiam deleniti cum?
-                    Reprehenderit ipsum aut, repudiandae quasi, praesentium
-                    libero molestias culpa assumenda molestiae cupiditate
-                    veritatis sit facilis laborum soluta quia rem!
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Veritatis itaque a accusamus asperiores reprehenderit?
-                    Maxime magni nam accusamus aperiam deleniti cum?
-                    Reprehenderit ipsum aut, repudiandae quasi, praesentium
-                    libero molestias culpa assumenda molestiae cupiditate
-                    veritatis sit facilis laborum soluta quia rem!
-                  </p>
+                 
                   <a href="join-event.html" class="join-event">Join Now</a>
                 </div>
               </div>
@@ -222,52 +208,6 @@
       </main>
     </section>
     <!-- Footer -->
-    <footer class="main-wrap mt-5">
-      <div class="footer-wrap">
-        <div class="footer-wrap-1">
-          <div class="col-md-12 footer">
-            <h4>
-              HNBGU Councils & Clubs | H.N.B.Garhwal University, Srinagar |
-              District Garhwal, Uttarakhand
-            </h4>
-          </div>
-        </div>
-        <div class="footer-wrap-2">
-          <div class="line"></div>
-          <div class="social-link">
-            <a href="#">
-              <img src="images/sm/fb.png" alt="Facebook" />
-            </a>
-            <a href="https://www.instagram.com/tccforsoet/">
-              <img src="images/sm/ins.png" alt="instagram" />
-            </a>
-            <a href="#">
-              <img src="images/sm/linkedin.png" alt="linkedin" />
-            </a>
-            <a href="#">
-              <img src="images/sm/twitter.png" alt="twitter" />
-            </a>
-            <a href="#"> <img src="images/sm/youtube.png" alt="youtube" /> </a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="first-box">
-          <a href="#">Terms & Conditions</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Sitemap</a>
-          <a href="#">Feedback</a>
-          <a href="https://www.hnbgu.ac.in/" target="_blank"
-            >University Webiste</a
-          >
-        </div>
-        <div class="last-box">
-          <a href="#"
-            >&copy; Copyright 2022 HNBGU Councils & Clubs. All rights
-            reserved.</a
-          >
-        </div>
-      </div>
-    </footer>
+    <?php include "footer.php" ?>
   </body>
 </html>

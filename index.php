@@ -148,7 +148,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <!-- <div class="instagram">
+          <div class="instagram">
             <blockquote
               class="instagram-media"
               data-instgrm-captioned
@@ -463,7 +463,7 @@
               src="https://platform.twitter.com/widgets.js"
               charset="utf-8"
             ></script>
-          </div> -->
+          </div>
           <div class="gallery-container">
             <h2>Gallery</h2>
             <div class="photo-gallery">

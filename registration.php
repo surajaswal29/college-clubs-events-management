@@ -23,7 +23,7 @@
         $result = mysqli_query($conn,$sql);  
 
         if($result){
-          redirect('msg.php');
+          redirect('verification');
         }else{
           die();
         }
