@@ -40,6 +40,8 @@
               if(mysqli_num_rows($output)>0){
                 $data = mysqli_fetch_assoc($output);
                 $_SESSION['user_name'] =  $data['firstname'];
+                $_SESSION['register_id'] =  $data['reg_id'];
+
                 redirect('home');
               }else{
                 echo"<span class='err'>Error: Username or Password does not match!</span>";
@@ -51,3 +53,4 @@
     </div>
   </body>
 </html>
+

@@ -1,11 +1,13 @@
 <?php 
   include "master.php";
   include "header.php";
+
+  $club_name = $_GET['cc_name'];
 ?>
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-5">
-            <h1>Computer Science Club</h1>
+            <h1><?php echo $club_name; ?></h1>
             <p style="text-align:justify;">
               The objective of this Club is to make expose students to valuable skills which prepares and sustain them in professional working environment. The Club also works to inculcate technical skills, teamwork and leadership in them. The Club organizes Workshops, Quiz Hunts (Technical+Non-Technical), LAN Gaming, Seminars, Code Hunt, Theatre Plays and other Technical and Non-Technical Activities.
 

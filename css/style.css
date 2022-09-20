@@ -112,7 +112,7 @@
 }
 .main-banner,
 .club-banner {
-  height: 420px;
+  height: 440px;
   width: 100%;
   background-size: 100%;
   background-position: center;
@@ -124,16 +124,16 @@
   background-position: center;
 }
 .item-1 {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc8aLz2t_M0nunmlPfxerxRb1VOEuHRslzYw&usqp=CAU");
+  background-image: url("../images/bg-image-1.jpg");
 }
 .item-2 {
-  background-image: url("http://www.hnbgu.ac.in/sites/default/files/2020-04/IMG-20191212-WA0001%281%29.jpg");
+  background-image: url("../images/hnbg-banner.jpg");
 }
 .item-3 {
   background-image: url("https://lh5.googleusercontent.com/p/AF1QipMAQxQTHtzo5GwLSqsViTsCgsbo_sgkD0Nd7RIV=w1080-k-no");
 }
 .item-4 {
-  background-image: url("https://lh5.googleusercontent.com/p/AF1QipOgXWK10B1CvUTaKZuQZrR7kNpT6fANkT1CwzJx=w1080-k-no");
+  background-image: url("../images/bg-image.jpg");
 }
 .item-hnb {
   background-image: url("https://www.hnbgu.ac.in/sites/default/files/styles/page_banner/public/2019-10/late-shri-hemwati-nandan-bahuguna.jpg?itok=SFMwaL4t");

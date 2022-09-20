@@ -22,6 +22,7 @@
             ></a>
             <div class="hnbgu-nav-links hide-navbar" id="hnbgu-nav-links">
               <a href="eventlist">Events</a>
+              <a href="alumni">Alumni</a>
               <!-- <a href="#">Councils & Clubs -->
               <!-- <div class="council-dropdown">
                   <a href="#">1</a>
@@ -42,7 +43,7 @@
                     &nbsp;&nbsp;
                     <?php echo $_SESSION['user_name'] ?>
                     <div class="profile-drop">
-                        <a href="view-profile.php" class="text-light"><i class="fa-solid fa-id-card"></i> View Profile</a>
+                        <a href="profile" class="text-light"><i class="fa-solid fa-id-card"></i> View Profile</a>
                         <a href="userlogout" class="text-light bg-secondary"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
                     </div>
               </div>

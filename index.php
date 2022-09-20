@@ -51,11 +51,11 @@
                 <div class="col-12">
                   <div id="hnbgu-clubs" class="hnbgu-clubs hnbgu-clubs-hide">
                     <ul>
-                      <li><a href="clubs" class="club-link text-dark"> Computer Science Club          </a> </li>
-                      <li><a href="clubs" class="club-link text-dark"> Electrical Club                </a>  </li>
-                      <li><a href="clubs" class="club-link text-dark"> Mechanical Club                </a>   </li>
-                      <li><a href="clubs" class="club-link text-dark"> Robotics and Instrumental Club </a>   </li>
-                      <li><a href="clubs" class="club-link text-dark"> Designing Club                 </a>  </li>
+                      <li><a href="clubs?cc_name=Computer Science Club" class="club-link text-dark"> Computer Science Club          </a> </li>
+                      <li><a href="clubs?cc_name=Electrical Club" class="club-link text-dark"> Electrical Club                </a>  </li>
+                      <li><a href="clubs?cc_name=Mechanical Club" class="club-link text-dark"> Mechanical Club                </a>   </li>
+                      <li><a href="clubs?cc_name=Robotics and Instrumental Club" class="club-link text-dark"> Robotics and Instrumental Club </a>   </li>
+                      <li><a href="clubs?cc_name=Designing Club" class="club-link text-dark"> Designing Club                 </a>  </li>
                     </ul>
                   </div>
                 </div>
@@ -74,10 +74,10 @@
                 <div class="col-12">
                   <div id="hnbgu-clubs" class="hnbgu-clubs hnbgu-clubs-hide">
                     <ul>
-                      <li>Language Club</li>
-                      <li>Reading Club</li>
-                      <li>Writing Club</li>
-                      <li>Debate Club</li>
+                      <li><a href="clubs?cc_name=Language Club" class="club-link text-dark"> Language Club</a></li>
+                      <li><a href="clubs?cc_name=Reading Club" class="club-link text-dark"> Reading Club</a></li>
+                      <li><a href="clubs?cc_name=Writing Club" class="club-link text-dark"> Writing Club</a></li>
+                      <li><a href="clubs?cc_name=Debate Club" class="club-link text-dark"> Debate Club</a></li>
                     </ul>
                   </div>
                 </div>
@@ -128,163 +128,10 @@
           </ul>
           <div class="row mt-3">
             <div class="col-md-12">
-              <div class="event-container">
-                <h2>Events</h2>
-                <div class="event-box">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <div class="event-img">
-                        <img
-                          src="https://www.taylor.edu/dA/78efae8f8f/image/robotics-thumb.jpg"
-                          alt="event images"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-8">
-                      <div class="event-meta">
-                        <span
-                          ><i class="fas fa-calendar-alt"></i> 22-06-2022</span
-                        >
-                        <span
-                          ><i class="fas fa-users"></i> Computer Science
-                          Club</span
-                        >
-                      </div>
-                      <div class="event-description mt-1">
-                        <span><strong>Name:</strong> Hackathon 1.0</span>
-                        <span>
-                          <strong>Venue</strong>: HEMVATI NANDAN BAHUGUNA
-                          GARHWAL UNIVERSITY, Chaursa Campus
-                        </span>
-                        <span>
-                          <strong>Start Date:</strong> 22-06-2022 |
-                          <strong>End Date:</strong> 22-06-2022
-                        </span>
-                      </div>
-                      <div class="event-join mt-1">
-                        <a href="#" class="badge p-2 px-4">Join</a>
-                        <a href="event-view.html" class="badge p-2 px-4"
-                          >View</a
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="event-box">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <div class="event-img">
-                        <img
-                          src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F292708519%2F222313655946%2F1%2Foriginal.20220527-133705?w=800&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=f374805466ca213b9a94a8b771a2c3bc"
-                          alt="event images"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-8">
-                      <div class="event-meta">
-                        <span
-                          ><i class="fas fa-calendar-alt"></i> 22-06-2022</span
-                        >
-                        <span
-                          ><i class="fas fa-users"></i> Computer Science
-                          Club</span
-                        >
-                      </div>
-                      <div class="event-description mt-1">
-                        <span><strong>Name:</strong> Hackathon 1.0</span>
-                        <span>
-                          <strong>Venue</strong>: HEMVATI NANDAN BAHUGUNA
-                          GARHWAL UNIVERSITY, Chaursa Campus
-                        </span>
-                        <span>
-                          <strong>Start Date:</strong> 22-06-2022 |
-                          <strong>End Date:</strong> 22-06-2022
-                        </span>
-                      </div>
-                      <div class="event-join mt-1">
-                        <a href="#" class="badge p-2 px-4">Join</a>
-                        <a href="#" class="badge p-2 px-4">View</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="event-box">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <div class="event-img">
-                        <img
-                          src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F296630669%2F275390982522%2F1%2Foriginal.20220603-130243?w=800&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C94%2C1920%2C960&s=dc994b754536479bf88efbc547851e1e"
-                          alt="event images"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-8">
-                      <div class="event-meta">
-                        <span
-                          ><i class="fas fa-calendar-alt"></i> 22-06-2022</span
-                        >
-                        <span
-                          ><i class="fas fa-users"></i> Computer Science
-                          Club</span
-                        >
-                      </div>
-                      <div class="event-description mt-1">
-                        <span><strong>Name:</strong> Hackathon 1.0</span>
-                        <span>
-                          <strong>Venue</strong>: HEMVATI NANDAN BAHUGUNA
-                          GARHWAL UNIVERSITY, Chaursa Campus
-                        </span>
-                        <span>
-                          <strong>Start Date:</strong> 22-06-2022 |
-                          <strong>End Date:</strong> 22-06-2022
-                        </span>
-                      </div>
-                      <div class="event-join mt-1">
-                        <a href="#" class="badge p-2 px-4">Join</a>
-                        <a href="#" class="badge p-2 px-4">View</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="event-box">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <div class="event-img">
-                        <img src="images/hackathon.png" alt="event images" />
-                      </div>
-                    </div>
-                    <div class="col-md-8">
-                      <div class="event-meta">
-                        <span
-                          ><i class="fas fa-calendar-alt"></i> 22-06-2022</span
-                        >
-                        <span
-                          ><i class="fas fa-users"></i> Computer Science
-                          Club</span
-                        >
-                      </div>
-                      <div class="event-description mt-1">
-                        <span><strong>Name:</strong> Hackathon 1.0</span>
-                        <span>
-                          <strong>Venue</strong>: HEMVATI NANDAN BAHUGUNA
-                          GARHWAL UNIVERSITY, Chaursa Campus
-                        </span>
-                        <span>
-                          <strong>Start Date:</strong> 22-06-2022 |
-                          <strong>End Date:</strong> 22-06-2022
-                        </span>
-                      </div>
-                      <div class="event-join mt-1">
-                        <a href="#" class="badge p-2 px-4">Join</a>
-                        <a href="#" class="badge p-2 px-4">View</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <?php include "events-component.php"; ?>
             </div>
             <div class="col-md-12 view-more">
-              <a href="event-list.html"
+              <a href="eventlist"
                 >View more <i class="fas fa-angle-double-right"></i
               ></a>
             </div>
@@ -293,13 +140,10 @@
                 If you want to join a group or want to participate in any event
                 then you have to fill a registration form first.
               </p>
-              <p>
-                <em
-                  >Note: This is just one time registration. You don't have to
-                  register again, just login to the site and join event.</em
-                >
+              <p> Note: This is just one time registration. You don't have to
+                  register again, just login to the site and join event.
               </p>
-              <a href="registration.html">Register Here</a>
+              <a href="registration">Register Here</a>
             </div>
           </div>
         </div>
@@ -641,53 +485,7 @@
       </div>
     </section>
     <!-- HNBGU Footer -->
-    <footer class="main-wrap mt-5">
-      <div class="footer-wrap">
-        <div class="footer-wrap-1">
-          <div class="col-md-12 footer">
-            <h4>
-              HNBGU Councils & Clubs | H.N.B.Garhwal University, Srinagar |
-              District Garhwal, Uttarakhand
-            </h4>
-          </div>
-        </div>
-        <div class="footer-wrap-2">
-          <div class="line"></div>
-          <div class="social-link">
-            <a href="#">
-              <img src="images/sm/fb.png" alt="Facebook" />
-            </a>
-            <a href="https://www.instagram.com/tccforsoet/">
-              <img src="images/sm/ins.png" alt="instagram" />
-            </a>
-            <a href="#">
-              <img src="images/sm/linkedin.png" alt="linkedin" />
-            </a>
-            <a href="#">
-              <img src="images/sm/twitter.png" alt="twitter" />
-            </a>
-            <a href="#"> <img src="images/sm/youtube.png" alt="youtube" /> </a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="first-box">
-          <a href="#">Terms & Conditions</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Sitemap</a>
-          <a href="#">Feedback</a>
-          <a href="https://www.hnbgu.ac.in/" target="_blank"
-            >University Webiste</a
-          >
-        </div>
-        <div class="last-box">
-          <a href="#"
-            >&copy; Copyright 2022 HNBGU Councils & Clubs. All rights
-            reserved.</a
-          >
-        </div>
-      </div>
-    </footer>
+  <?php include "footer.php"?>
     <!-- owl-carousel script -->
     <script>
       $(document).ready(function () {

@@ -71,18 +71,27 @@ const filebtn = document.querySelector("#id-image");
 const imgDetails = document.querySelector("#image-details");
 const imgContainer = document.querySelector("#preview-img");
 
-imgContainer.addEventListener("error", () => {
-  imgContainer.style.display = "none";
-});
-console.log(filebtn, imgDetails, imgContainer);
+if (filebtn && imgDetails && imgContainer) {
+  imgContainer.addEventListener("error", () => {
+    imgContainer.style.display = "none";
+  });
+  console.log(filebtn, imgDetails, imgContainer);
 
-filebtn.addEventListener("change", () => {
-  const fileName = filebtn.files[0].name;
-  const fileSize = filebtn.files[0].size / 1000;
+  filebtn.addEventListener("change", () => {
+    const fileName = filebtn.files[0].name;
+    const fileSize = filebtn.files[0].size / 1000;
 
-  imgContainer.setAttribute("src", `images/${fileName}`);
-  imgContainer.style.display = "flex";
-  const htmlText = `File Name: <p>${fileName}</p>Size: <p>${fileSize}KB</p>`;
-  console.log(htmlText);
-  imgDetails.innerHTML = htmlText;
-});
+    imgContainer.setAttribute("src", `images/${fileName}`);
+    imgContainer.style.display = "flex";
+    const htmlText = `File Name: <p>${fileName}</p>Size: <p>${fileSize}KB</p>`;
+    console.log(htmlText);
+    imgDetails.innerHTML = htmlText;
+  });
+}
+ClassicEditor.create(document.querySelector("#editor"))
+  .then((editor) => {
+    console.log(editor);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
