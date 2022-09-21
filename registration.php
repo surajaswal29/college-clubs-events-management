@@ -1,5 +1,14 @@
-<?php include "master.php"?>
-<?php
+<?php 
+//Import PHPMailer classes into the global namespace
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+//Load Composer's autoloader
+require 'vendor/autoload.php';
+
+include "master.php";
+
       if(isset($_POST['submit'])){
 
         $regId = 'HNB'.date('Y').rand(1000,9999); //Student ID Generation
@@ -18,15 +27,55 @@
         $password = $_POST['password'];
         $date = date('Y-m-d');
 
-        $sql = "INSERT INTO `users` (`reg_id`, `firstname`, `lastname`, `email`, `phone`, `department`, `year`, `semester`, `council`, `club`, `social`, `aoi`, `password`,`verified`, `date`) 
-                VALUES ('{$regId}', '{$firstName}', '{$lastName}', '{$email}', '{$phone}', '{$dept}', '{$year}', '{$sem}', '{$council}', '{$club}', '{$social}', '{$aoi}', '{$password}',0, '{$date}')";
-        $result = mysqli_query($conn,$sql);  
+        // $token = bin2hex(random_bytes(16));
 
-        if($result){
-          redirect('verification');
-        }else{
-          die();
-        }
+        //Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer(true);
+
+        // try {
+          //Server settings
+          $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+          $mail->isSMTP();                                            //Send using SMTP
+          $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+          $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+          $mail->Username   = 'saswal086@gmail.com';                     //SMTP username
+          $mail->Password   = 'enrkwiasinvmkycm';                               //SMTP password
+          $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+          $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+      
+          //Recipients
+          $mail->setFrom('saswal086@gmail.com', 'Councils and Clubs');
+          $mail->addAddress($email, $firstName.''.$lastName);     //Add a recipient
+
+          $mail->isHTML(true);                                  //Set email format to HTML
+          $mail->Subject = 'Email Verification';
+          $mail->Body    = '
+          <div>
+            <h1>HNBGU Councils & Clubs</h1>
+            <p>Click on the link provided below to verify your email address and submit your application form.</p>
+            <a href="http://localhost/hnbgu-councils-clubs/verification?regid='.$regId.'">Click Here</a>
+          </div>';
+          // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+      
+          if($mail->send()){
+            $sql = "INSERT INTO `users` (`reg_id`, `firstname`, `lastname`, `email`, `phone`, `department`, `year`, `semester`, `council`, `club`, `social`, `aoi`, `password`,`verified`, `date`) 
+                    VALUES ('{$regId}', '{$firstName}', '{$lastName}', '{$email}', '{$phone}', '{$dept}', '{$year}', '{$sem}', '{$council}', '{$club}', '{$social}', '{$aoi}', '{$password}',0, '{$date}')";
+            $result = mysqli_query($conn,$sql);  
+
+            if($result){
+              redirect('verifyemail.php');
+            }else{
+              die();
+            }
+          }else{
+            echo "Error Message";
+          }
+          
+      // } catch (Exception $e) {
+          // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+      // }
+
+        
     }
 ?>
     <div class="form-wrap">
@@ -270,6 +319,7 @@
                     type="submit"
                     id="reg-submit"
                     class="form-control mt-4"
+                    style="cursor:not-allowed"
                     disabled>
                     Submit
                   </button>

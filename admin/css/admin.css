@@ -75,3 +75,6 @@
   left: unset;
   right: 0;
 }
+.custom-card {
+  width: 18rem;
+}

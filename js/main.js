@@ -9,10 +9,6 @@ const cPassword = document.querySelector("#c-pass");
 const passErr = document.querySelectorAll("#passError");
 const submitButton = document.querySelector("#reg-submit");
 
-console.log(password);
-console.log(cPassword);
-// console.log(downClick);
-console.log(hamMenuBtn);
 // performing event for every node
 for (let i = 0; i < downClick.length; i++) {
   const ele = downClick[i];
@@ -23,7 +19,6 @@ for (let i = 0; i < downClick.length; i++) {
 // console.log(hamMenuBtn.classList);
 if (hamMenuBtn) {
   hamMenuBtn.addEventListener("click", function () {
-    console.log("clicked Menu");
     hamMenuDropdown.classList.toggle("hide-navbar");
   });
 }
@@ -34,16 +29,15 @@ const submitBtn = function () {
 };
 
 if (password && cPassword) {
-  password.addEventListener("focusout", function () {
-    console.log(password.value);
-  });
+  // password.addEventListener("focusout", function () {
+  //   console.log(password.value);
+  // });
 
   password.addEventListener("input", function () {
     const passValue = password.value;
     const regEx =
       /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/;
     if (passValue.match(regEx)) {
-      console.log(passValue);
       passErr[0].textContent = "Strong Password!";
       passErr[0].style.color = "green";
       password.style.border = "1px solid green";
@@ -54,7 +48,9 @@ if (password && cPassword) {
       password.style.border = "1px solid red";
     }
   });
+
   cPassword.addEventListener("focusout", function () {
+    // if (cPassword.value != "") {
     if (cPassword.value == password.value) {
       passErr[1].textContent = "Password Matched!";
       passErr[1].style.color = "green";
@@ -64,6 +60,7 @@ if (password && cPassword) {
       passErr[1].textContent = "Password does not matched!";
       passErr[1].style.color = "red";
     }
+    // }
   });
 }
 
