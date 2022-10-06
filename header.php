@@ -1,5 +1,5 @@
 <!-- HNBGU Council Header -->
-<header class="container-fluid">
+<header class="container-fluid sticky-header">
       <div class="row border-bottom">
         <div class="col-md-5 hnbgu-logo pr-center">
           <div class="logo">
@@ -23,6 +23,7 @@
             <div class="hnbgu-nav-links hide-navbar" id="hnbgu-nav-links">
               <a href="eventlist">Events</a>
               <a href="alumni">Alumni</a>
+              <!-- <a href="soet">SOET</a> -->
               <!-- <a href="#">Councils & Clubs -->
               <!-- <div class="council-dropdown">
                   <a href="#">1</a>
@@ -52,7 +53,7 @@
               }else{
               ?>
               <a href="login">Login</a>
-              <a href="registration">Register</a>
+              <!-- <a href="registration">Register</a> -->
               <?php
               }
               ?>

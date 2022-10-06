@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      HNBGU COUNCILS & CLUBS | Hemvati Nandan Bahuguna Garhwal University
+      Student Clubs and Societies | Hemvati Nandan Bahuguna Garhwal University
     </title>
     <!-- Website Favicon -->
     <link
@@ -42,6 +42,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Marquee CSS file -->
+    <link rel="stylesheet" href="css/marquee.css" />
     <!-- main CSS file -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
@@ -60,7 +62,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-
+    <!-- Marquee JS File -->
+    <script type="text/javascript" src="js/marquee.js" defer></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
 
     <!-- main js file -->

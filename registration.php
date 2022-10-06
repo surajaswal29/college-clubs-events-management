@@ -29,22 +29,21 @@ include "master.php";
 
         // $token = bin2hex(random_bytes(16));
 
-        //Create an instance; passing `true` enables exceptions
+        // Create an instance; passing `true` enables exceptions
         $mail = new PHPMailer(true);
 
-        // try {
-          //Server settings
+          // Server settings
           $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
           $mail->isSMTP();                                            //Send using SMTP
           $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
           $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-          $mail->Username   = 'saswal086@gmail.com';                     //SMTP username
-          $mail->Password   = 'enrkwiasinvmkycm';                               //SMTP password
+          $mail->Username   = 'councilandclubs@gmail.com';                     //SMTP username
+          $mail->Password   = 'bxnadwfyrehaqchr';                               //SMTP password
           $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
           $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
       
-          //Recipients
-          $mail->setFrom('saswal086@gmail.com', 'Councils and Clubs');
+          // Recipients
+          $mail->setFrom('councilandclubs@gmail.com', 'Councils and Clubs');
           $mail->addAddress($email, $firstName.''.$lastName);     //Add a recipient
 
           $mail->isHTML(true);                                  //Set email format to HTML
@@ -57,6 +56,28 @@ include "master.php";
           </div>';
           // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
       
+          // $to = $email;
+          // $subject = "Email Verification";
+          
+          // $message = "
+          // <html>
+          // <head>
+          // <title>Email Verification</title>
+          // </head>
+          // <body>
+          // <p>Click on the link provided below to verify your email address and submit your application form.</p>
+          // <a href='http://localhost/hnbgu-councils-clubs/verification?regid=".$regId."'>Click Here</a>
+          // </body>
+          // </html>
+          // ";
+          
+          // // Always set content-type when sending HTML email
+          // $headers = "MIME-Version: 1.0" . "\r\n";
+          // $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+          
+          // // More headers
+          // $headers .= 'From: <saswal086@gmail.com>' . "\r\n";
+
           if($mail->send()){
             $sql = "INSERT INTO `users` (`reg_id`, `firstname`, `lastname`, `email`, `phone`, `department`, `year`, `semester`, `council`, `club`, `social`, `aoi`, `password`,`verified`, `date`) 
                     VALUES ('{$regId}', '{$firstName}', '{$lastName}', '{$email}', '{$phone}', '{$dept}', '{$year}', '{$sem}', '{$council}', '{$club}', '{$social}', '{$aoi}', '{$password}',0, '{$date}')";

@@ -1,57 +1,151 @@
 <?php 
   include "master.php";
   include "header.php";
-
-  $club_name = $_GET['cc_name'];
+  // echo bin2hex(random_bytes(16));
 ?>
-<div class="club-banner">
-  <img src="upload-image/bg-image-1.jpg" alt="Club Banner">
-</div>
-<section class="container-fluid">
-  <div class="container club-sub">
-      <div class="row">
-          <div class="col-md-12 mt-5">
-                  <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="home">Home</a></li>
-                      <li class="breadcrumb-item"><a href="registeredclubs">Registered Clubs</a></li>
-                      <li class="breadcrumb-item active" aria-current="page"><?php echo $club_name; ?></li>
-                    </ol>
-                  </nav>
-              <h1><?php echo $club_name; ?></h1>
-              <p style="text-align:justify;">
-                The objective of this Club is to make expose students to valuable skills which prepares and sustain them in professional working environment. The Club also works to inculcate technical skills, teamwork and leadership in them. The Club organizes Workshops, Quiz Hunts (Technical+Non-Technical), LAN Gaming, Seminars, Code Hunt, Theatre Plays and other Technical and Non-Technical Activities.
-
-                HNBGU encourages the students to participate in all activities conducted by the club. Club has a format body with multiple positions are occupied by students after a screening process.
-              </p>
-          </div>
-      </div>
-      <div class="row">
-      <div class="col-md-8">
-          <div class="row">
-              <?php include "events-component.php"; ?>
-          </div>
+    <!-- HNBGU Council Main Banner -->
+    <div class="club-banner">
+      <img src="upload-image/bg-image.jpg" alt="Club Banner">
+    </div>
+    <section class="container-fluid">
+      <div class="container club-sub">
+        <!-- HNBGU Council Description -->
           <div class="row mt-4">
-              <div class="col-md-12">
-                  <h1>Club Gallery</h1>
-              </div>
-              <div class="row justify-content-space-between">
-                  <div class="col-md-4 mt-2">
-                      <img src="images/profile-icon.jpg" alt="gallery" class="img-fluid">
-                  </div>
-                  <div class="col-md-4 mt-2">
-                      <img src="images/profile-icon.jpg" alt="gallery" class="img-fluid">
-                  </div>
-                  <div class="col-md-4 mt-2">
-                      <img src="images/profile-icon.jpg" alt="gallery" class="img-fluid">
-                  </div>
-                  <div class="col-md-4 mt-2">
-                      <img src="images/profile-icon.jpg" alt="gallery" class="img-fluid">
-                  </div>
-              </div>
+            <div class="col-md-12">
+              <!-- <h1>Technical and Cultural Societies</h1> -->
+              <h1>SOET - School of Engineering and Technology</h1>
+            </div>
+            <div class="col-md-12 d-flex tcc-img">
+              <!-- <img
+                src="http://www.hnbgu.ac.in/sites/default/files/2020-04/IMG-20191212-WA0001%281%29.jpg"
+                alt=""
+              /> -->
+              <p>
+                HNBGU Councils & Clubs have a lot to offer. Whether you join as a
+                member or choose to lead one, simply taking part in an
+                extracurricular group will enhance your college experience. Gaining
+                skills, making connections, and broadening your knowledge through a
+                student organization will help you become a more well-rounded
+                individual — one that’s ready to take on their future career!
+              </p>
+            </div>
+            <div class="col-12 mt-2">
+              <p>The following clubs and councils have been registered.</p>
+            </div>
           </div>
-      </div>
-      <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-8 hnbgu-council-tab border">
+              <ul>
+                <li>
+                  <!-- Council Name -->
+                  <div class="row">
+                    <div class="col-12 dp-sb" id="down-tab">
+                      <h4>Technical Clubs</h4>
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                  </div>
+                  <!-- Clubs Names -->
+                  <div class="row">
+                    <div class="col-12">
+                      <div id="hnbgu-clubs" class="hnbgu-clubs hnbgu-clubs-hide">
+                        <ul>
+                          <li><a href="clubs?cc_name=Computer Science Club" class="club-link text-dark"> Computer Science Club          </a> </li>
+                          <li><a href="clubs?cc_name=Electrical Club" class="club-link text-dark"> Electrical Club                </a>  </li>
+                          <li><a href="clubs?cc_name=Mechanical Club" class="club-link text-dark"> Mechanical Club                </a>   </li>
+                          <li><a href="clubs?cc_name=Robotics and Instrumental Club" class="club-link text-dark"> Robotics and Instrumental Club </a>   </li>
+                          <li><a href="clubs?cc_name=Designing Club" class="club-link text-dark"> Designing Club                 </a>  </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <!-- Council Name -->
+                  <div class="row">
+                    <div class="col-12 dp-sb" id="down-tab">
+                      <h4>Fine Arts</h4>
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                  </div>
+                  <!-- Clubs Names -->
+                  <div class="row">
+                    <div class="col-12">
+                      <div id="hnbgu-clubs" class="hnbgu-clubs hnbgu-clubs-hide">
+                        <ul>
+                          <li><a href="clubs?cc_name=Language Club" class="club-link text-dark"> Language Club</a></li>
+                          <li><a href="clubs?cc_name=Reading Club" class="club-link text-dark"> Reading Club</a></li>
+                          <li><a href="clubs?cc_name=Writing Club" class="club-link text-dark"> Writing Club</a></li>
+                          <li><a href="clubs?cc_name=Debate Club" class="club-link text-dark"> Debate Club</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <!-- Council Name -->
+                  <div class="row">
+                    <div class="col-12 dp-sb" id="down-tab">
+                      <h4>Sports</h4>
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                  </div>
+                  <!-- Clubs Names -->
+                  <div class="row">
+                    <div class="col-12">
+                      <div id="hnbgu-clubs" class="hnbgu-clubs hnbgu-clubs-hide">
+                        <ul>
+                          <li>Drama Club</li>
+                          <li>Music Club</li>
+                          <li>Poetry Club</li>
+                          <li>Script Writing Community</li>
+                          <li>Video and Media Club</li>
+                          <li>Anchor Community</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <!-- Council Name -->
+                  <div class="row">
+                    <div class="col-12 dp-sb" id="down-tab">
+                      <h4>Cultural Societies</h4>
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <!-- Council Name -->
+                  <div class="row">
+                    <div class="col-12 dp-sb" id="down-tab">
+                      <h4>Language & Literature Societies</h4>
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <?php include "events-component.php"; ?>
+                </div>
+                <div class="col-md-12 view-more">
+                  <a href="eventlist"
+                    >View more <i class="fas fa-angle-double-right"></i
+                  ></a>
+                </div>
+                <div class="col-md-12 reg-note mb-2">
+                  <p>
+                    If you want to join a group or want to participate in any event
+                    then you have to fill a registration form first.
+                  </p>
+                  <p> Note: This is just one time registration. You don't have to
+                      register again, just login to the site and join event.
+                  </p>
+                  <a href="registration">Register Here</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
           <div class="club-member">
               <h2>Club Members</h2>
               <div class="member-box mt-4">
@@ -238,10 +332,23 @@
                 </div>
               </div>
       </div>
+          </div>
       </div>
-  </div>
-</section>
-<?php include "footer.php"?>
+    </section>
+    <!-- HNBGU Footer -->
+  <?php include "footer.php"?>
+    <!-- owl-carousel script -->
+    <script>
+      $(document).ready(function () {
+        $(".owl-carousel").owlCarousel({
+          items: 1,
+          nav: true,
+          loop: true,
+          autoplay: true,
+          dots: true,
+        });
+      });
+    </script>
   </body>
 </html>
 <!--Author: Suraj Aswal -->

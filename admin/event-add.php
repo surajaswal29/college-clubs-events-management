@@ -2,93 +2,167 @@
     include "master-file.php";
     include "admin-header.php"
 ?>
+<?php
+  if(isset($_POST['submit'])){
+      $e_name = $_POST['event_name'];
+      $e_venue = $_POST['event_venue'];
+      $s_date = $_POST['start_date'];
+      $e_date = $_POST['end_date'];
+      $e_organizer = $_POST['club'];
+      $description =mysqli_real_escape_string($conn, $_POST['desc']);
+      $date = date('Y-m-d');
 
-<div class="container-fluid">
-    <div class="row p-4">
-        <div class="col-md-10 pr-center">
-                <div class="add-form">
-                    <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
-                        
-                        <!-- username -->
-                        <div class="row mt-3">
-                            <div class="col-md-4 label">
-                                <label for="name" class="col-form-label">Name:</label>
-                            </div>
-                            <div class="col-md-8">
-                                <input type="text" name="name" id="name" class="form-control">
-                            </div>
-                        </div>
-                        <!-- academy -->
-                        <div class="row mt-3">
-                            <div class="col-md-4 label">
-                                <label for="academy" class="col-form-label">Event Venue:</label>
-                            </div>
-                            <div class="col-md-8">
-                                <input type="text" name="desg" id="desg" class="form-control">
-                            </div>
-                        </div>
-                        <!-- mobile no. -->
-                        <div class="row mt-3">
-                            <div class="col-md-4 label">
-                                <label for="username">Mobile Number :</label>
-                            </div>
-                            <div class="col-md-8">
-                                <input type="text" name="phone" id="phone" class="form-control">
-                            </div>
-                        </div>
-                        <!-- type -->
-                        <div class="row mt-3">
-                            <div class="col-md-4 label">
-                                <label for="username">Staff Type :</label>
-                            </div>
-                            <div class="col-md-8">
-                                <select name="type" id="type" class="form-control">
-                                    <option value="Select Staff type">Select staff Type</option>
-                                    <option value="Regular">Regular</option>
-                                    <option value="Part Time">Part Time</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- email -->
-                        <div class="row mt-3">
-                            <div class="col-md-3 offset-4">
-                                <input type="submit" name="sub" value="Add staff" class="btn btn-block btn-danger">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-12">
-                            <?php
-                                if(isset($_POST['sub'])){
+      $image_name = $_FILES['event_image']['name'];
+      $file_type = $_FILES['event_image']['type'];
+      $temp_name = $_FILES['event_image']['tmp_name'];
+      $image_size = $_FILES['event_image']['size'];  
 
-                                    $date=date('y-m-d');
-                                    $id=$_POST['id'];
-                                    $name=$_POST["name"];
-                                    $desg=$_POST["desg"];
-                                    $phone=mysqli_real_escape_string($con,$_POST["phone"]);
-                                    $type=$_POST["type"];
+      $destination = 'upload-image/'.$image_name;
+      if(move_uploaded_file($temp_name, $destination)){
+        $query = "INSERT INTO `event-list` 
+                (`event_name`, `event_venue`, `organizer`, `description`, `start_date`, `end_date`, `event_image`, `date`) 
+                VALUES 
+                ('{$e_name}', '{$e_venue}', '{$e_organizer}', '{$description}', '{$s_date}', '{$e_date}', '{$image_name}', '{$date}')";
+        $output = mysqli_query($conn,$query);
 
-                                    $query="SELECT * FROM staff_info WHERE phone='{$phone}'";
-                                    $result=mysqli_query($con,$query);
-                                    if(mysqli_num_rows($result)>0){
-                                        $row=mysqli_fetch_assoc($result);
-                                        if($phone==$row['phone']){
-                                           echo"<script>alert('Staff Member Already Exist')</script>";
-                                        }
-                                    }else
-                                        {
-                                            $query="INSERT INTO staff_info(id,name,designation,phone,type,date) VALUES($id,'{$name}','$desg','$phone','{$type}','$date')";
-                                            $output=mysqli_query($con,$query) or die("Query Failed!");
-                                            if($output){
-                                               echo"<script>alert('Staff Added Successfully')</script>";
-                                            }
-                                            mysqli_close($con);
-                                        }
-                                }
-                            ?>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+        if($output){
+          redirect('eventmanagement');
+        }else{
+          echo"Error";
+        }
+      }else{
+        echo"Error!";
+      }
+  }
+?>
+<div class="form-wrap">
+      <div class="container shadow">
+        <div class="row">
+          <div class="col-md-12 m-0 p-0 form-heading">
+            <h1 class="btn-block">Add Event</h1>
+          </div>
         </div>
-    </div>
+        <div
+          class="row justify-content-center align-items-center display-none"
+          id="signup"
+        >
+          <div class="col-md-12">
+           <!-- <?php 
+            // echo"<pre>";
+              // print_r($_FILES);
+            // echo"</pre>";
+           ?> -->
+            <form action="eventmanagement" method="post" class="form p-md-5" enctype="multipart/form-data">
+              <div class="row">
+                <div class="col-md-6 mt-3 mt-3">
+                  <label for="event_name">Event Name<span class="imp-op">*</span></label>
+                  <input required type="text" name="event_name" class="form-control" />
+                </div>
+                <div class="col-md-6 mt-3 mt-3">
+                  <label for="event_venue">Event Venue<span class="imp-op">*</span></label>
+                  <input required type="text" name="event_venue" class="form-control" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mt-3">
+                  <label for="start">Start Date<span class="imp-op">*</span></label>
+                  <input required type="date" name="start_date" class="form-control" />
+                </div>
+                <div class="col-md-6 mt-3">
+                  <label for="end">End Date<span class="imp-op">*</span></label>
+                  <input required type="date" name="end_date" class="form-control" />
+                </div>
+                <!-- <input required type="text" class="form-control"> -->
+              </div>
+              <div class="row">
+                <div class="col-md-6 mt-3">
+                    <label for="council"
+                        >Organizer<span
+                        class="imp-op"
+                        >*</span
+                        ></label
+                    >
+                    <select name="club" id="club" class="form-control">
+                        <option value="00">Choose Club</option>
+                        <option
+                        value="Computer Science Club
+                        "
+                        >
+                        Computer Science Club
+                        </option>
+                        <option
+                        value="Electrical Club
+                        "
+                        >
+                        Electrical Club
+                        </option>
+                        <option
+                        value="Robotics and Instrumental Club
+                        "
+                        >
+                        Robotics and Instrumental Club
+                        </option>
+                        <option
+                        value="Designing Club
+                        "
+                        >
+                        Designing Club
+                        </option>
+                        <option
+                        value="Mechanical Club
+                        "
+                        >
+                        Mechanical Club
+                        </option>
+
+                        <option value="Language Club">Language Club</option>
+                        <option value="Reading Club">Reading Club</option>
+                        <option value="Writing Club">Writing Club</option>
+                        <option value="Debate Club">Debate Club</option>
+                        <option value="Drama Club">Drama Club</option>
+                        <option value="Music Club">Music Club</option>
+                        <option value="Poetry Club">Poetry Club</option>
+                        <option value="Script Writing Community">
+                        Script Writing Community
+                        </option>
+                        <option value="Video and Media Club">
+                        Video and Media Club
+                        </option>
+                        <option value="Anchor Community">Anchor Community</option>
+                        <!-- <option value=""></option> -->
+                        <!-- <option value=""></option> -->
+                    </select>
+                    </div>
+                <div class="col-md-6 mt-3">
+                  <label for="event_image"
+                    >Event Image<span class="imp-op">*</span></label
+                  >
+                  <input required type="file" name="event_image" id="event_image" class="form-control" />
+               </div>
+               <div class="row">
+                    <div class="col-md-12 mt-3">
+                      <label for="desc"
+                        >Event Description<span class="imp-op">*</span></label
+                      >
+                      <textarea class="form-control" id="editor" style="height:300px;" name='desc'></textarea>
+                    </div>
+                </div>
+              
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <button
+                    required
+                    name="submit"
+                    type="submit"
+                    class="form-control mt-4"
+                    >
+                    Submit
+                  </button>
+                </div>
+                
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
 </div>

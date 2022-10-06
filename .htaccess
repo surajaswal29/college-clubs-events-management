@@ -11,5 +11,9 @@ RewriteRule ^clubs?$ club-view.php
 RewriteRule ^eventmanagement?$ event-management.php
 RewriteRule ^event_view?$ event-view.php
 RewriteRule ^alumni?$ alumni.php
+RewriteRule ^clubregistration?$ club-registration.php
+RewriteRule ^registeredclubs?$ club-list.php
 RewriteRule ^profile?$ view-profile.php
 RewriteRule ^verification?$ verification.php
+RewriteRule ^clublist?$ club-list.php
+RewriteRule ^soet?$ soet.php
