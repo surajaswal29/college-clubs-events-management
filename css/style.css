@@ -345,10 +345,17 @@ body {
   height: 100%;
 }
 .club-sub {
-  transform: translateY(-8%);
+  transform: translateY(-6%);
   padding: 10px 25px;
   background-color: #fff;
   box-shadow: -4px -4px 30px hsla(0, 0%, 0%, 0.212);
+}
+.bg-profile {
+  background-color: #f1f1f1;
+}
+.form-control:disabled {
+  background-color: #fff;
+  border: none;
 }
 .dp-sb {
   display: flex;

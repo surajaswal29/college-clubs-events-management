@@ -59,13 +59,19 @@
                   >
                   <input disabled type="text" name="department" value="<?php echo $data['department']; ?>" class="form-control" />
                 </div>
-                <div class="col-md-3 mt-3">
+                <div class="col-md-2 mt-3">
+                  <label for="password"
+                    >Course<span class="imp-op">*</span></label
+                  >
+                  <input disabled type="text" name="year" value="<?php echo $data['course']; ?>" class="form-control" />
+                </div>
+                <div class="col-md-2 mt-3">
                   <label for="password"
                     >Year<span class="imp-op">*</span></label
                   >
                   <input disabled type="text" name="year" value="<?php echo $data['year']; ?>" class="form-control" />
                 </div>
-                <div class="col-md-3 mt-3">
+                <div class="col-md-2 mt-3">
                   <label for="semester"
                     >Semester<span class="imp-op">*</span></label
                   >
@@ -76,12 +82,12 @@
               <div class="row">
                 <div class="col-md-6 mt-3">
                   <label for="council"
-                    >Council (Choose council which you want to join)<span
+                    >Roll No<span
                       class="imp-op"
                       >*</span
                     ></label
                   >
-                  <input disabled type="text" name="council" value="<?php echo $data['council']; ?>" class="form-control" />
+                  <input disabled type="text" name="council" value="<?php echo $data['roll_no']; ?>" class="form-control" />
                 </div>
                 <div class="col-md-6 mt-3">
                   <label for="club"
@@ -117,7 +123,20 @@
                     >Role
                     <span class="imp-op">(Give Role to this student)</span></label
                   >
-                  <input type="text" name="role_update" value="<?php echo $data['role']; ?>" class="form-control"/>
+                  <?php
+                    if($data['role'] == ""){
+                    echo' <select name="role_update" id="role_update" class="form-control">
+                            <option value="#">Choose Role</option>
+                            <option value="member">Member</option>
+                            <option value="director">Director</option>
+                          </select>';
+                    }else{
+                      ?>
+                    <input disabled type="text" name="role_update" value="<?php echo $data['role']; ?>" class="form-control"/>
+                  <?php
+                    }
+                  ?>
+                  
                   <input type="submit" name="update" value="Give Role & Register user" class="btn btn-primary mt-4">
                   <?php
                   if(isset($_POST['update'])){

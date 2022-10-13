@@ -3,9 +3,16 @@
   include "header.php";
 
   $club_name = $_GET['cc_name'];
+  $club_id = $_GET['club_id'];
+
+
+  $club_query= "SELECT * FROM club_info WHERE id='{$club_id}'";
+  $club_output = mysqli_query($conn,$club_query);
+
+  $club_data = mysqli_fetch_assoc($club_output);
 ?>
 <div class="club-banner">
-  <img src="upload-image/bg-image-1.jpg" alt="Club Banner">
+  <img src="upload-image/<?php echo $club_data['c_image']; ?>" alt="Club Banner">
 </div>
 <section class="container-fluid">
   <div class="container club-sub">
@@ -20,9 +27,7 @@
                   </nav>
               <h1><?php echo $club_name; ?></h1>
               <p style="text-align:justify;">
-                The objective of this Club is to make expose students to valuable skills which prepares and sustain them in professional working environment. The Club also works to inculcate technical skills, teamwork and leadership in them. The Club organizes Workshops, Quiz Hunts (Technical+Non-Technical), LAN Gaming, Seminars, Code Hunt, Theatre Plays and other Technical and Non-Technical Activities.
-
-                HNBGU encourages the students to participate in all activities conducted by the club. Club has a format body with multiple positions are occupied by students after a screening process.
+                <?php echo $club_data['club_description']; ?>             
               </p>
           </div>
       </div>

@@ -29,7 +29,7 @@
                     <!-- Council Name -->
                     <div class="row">
                       <div class="col-12" id="down-tab">
-                          <h3><a href="clubs?cc_name=<?php echo $data['club_name']; ?>" class="club-link"><?php echo $data['club_name'] ?></a></h3>
+                          <h3><a href="clubs?cc_name=<?php echo $data['club_name'].'&club_id='.$data['id']; ?>" class="club-link"><?php echo $data['club_name'] ?></a></h3>
                           <p><?php echo substr($data['club_description'], 0,150) ?></p>
                         
                         <!-- <i class="fas fa-angle-down"></i> -->

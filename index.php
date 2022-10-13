@@ -45,7 +45,7 @@
       <div class="row">
         <div class="col-md-9 hnbgu-council-tab">
           <main class="container">
-          <div class="row mt-4 px-md-4">
+          <div class="row mt-4 px-md-1">
           <div class="col-md-12">
             <!-- <h1>Technical and Cultural Societies</h1> -->
             <!-- <h1 class="font-50">Student Clubs and Societies</h1> -->
