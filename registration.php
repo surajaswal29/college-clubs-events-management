@@ -18,9 +18,10 @@ include "master.php";
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $dept = $_POST['department'];
+        $course = $_POST['course'];
         $year = $_POST['year'];
         $sem = $_POST['semester'];
-        $council = $_POST['council'];
+        $roll_no = $_POST['roll_no'];
         $club=$_POST['club'];
         $social = $_POST['social'];
         $aoi = $_POST['aoi'];
@@ -78,9 +79,17 @@ include "master.php";
           // // More headers
           // $headers .= 'From: <saswal086@gmail.com>' . "\r\n";
 
+        $sql_1 = "SELECT * FROM users WHERE email = '{$email}'";
+        $output_1 = mysqli_query($conn,$sql_1);
+
+        if(mysqli_num_rows($output_1)>0){
+          echo "<script>alert('User already exist!')</script>";
+
+        }else{
+        
           if($mail->send()){
-            $sql = "INSERT INTO `users` (`reg_id`, `firstname`, `lastname`, `email`, `phone`, `department`, `year`, `semester`, `council`, `club`, `social`, `aoi`, `password`,`verified`, `date`) 
-                    VALUES ('{$regId}', '{$firstName}', '{$lastName}', '{$email}', '{$phone}', '{$dept}', '{$year}', '{$sem}', '{$council}', '{$club}', '{$social}', '{$aoi}', '{$password}',0, '{$date}')";
+            $sql = "INSERT INTO `users` (`reg_id`, `firstname`, `lastname`, `email`, `phone`, `department`,`course`, `year`, `semester`, `roll_no`, `club`, `social`, `aoi`, `password`,`verified`, `date`) 
+                    VALUES ('{$regId}', '{$firstName}', '{$lastName}', '{$email}', '{$phone}', '{$dept}', '{$course}','{$year}', '{$sem}', '{$roll_no}', '{$club}', '{$social}', '{$aoi}', '{$password}',0, '{$date}')";
             $result = mysqli_query($conn,$sql);  
 
             if($result){
@@ -92,6 +101,7 @@ include "master.php";
             echo "Error Message";
           }
           
+        }
       // } catch (Exception $e) {
           // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
       // }
@@ -142,16 +152,33 @@ include "master.php";
                 <!-- <input required type="text" class="form-control"> -->
               </div>
               <div class="row">
-                <div class="col-md-6 mt-3">
-                  <label for="password"
-                    >Department<span class="imp-op">*</span></label
-                  >
-                  <input required type="text" name="department" class="form-control" />
+                <div class="col-md-4 mt-3">
+                  <label for="password">Department<span class="imp-op">*</span></label>
+                  <select name="department" id="club" class="form-control">
+                    <option value="00">Select Department</option>
+                    <option value="Department of Computer Science & Engineering">
+                      Computer Science & Engineering
+                    </option>
+                    <option value="Department of Electronic and Communication Engineering">
+                      Electronic and Communication Engineering
+                    </option>
+                    <option value="Department of Instrumentation Engineering">
+                     Instrumentation Engineering
+                    </option>
+                    <option value="Department of Mechanical Engineering">
+                      Mechanical Engineering
+                    </option>
+                    <option value="Department of Information Technology">
+                     Information Technology
+                    </option>
+                  </select>
+                </div>
+                <div class="col-md-2 mt-3">
+                    <label for="password">Course<span class="imp-op">*</span></label>
+                    <input type="text" class="form-control" name="course">
                 </div>
                 <div class="col-md-3 mt-3">
-                  <label for="password"
-                    >Year<span class="imp-op">*</span></label
-                  >
+                  <label for="password">Year<span class="imp-op">*</span></label>
                   <select name="year" id="year" class="form-control">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -160,8 +187,7 @@ include "master.php";
                   </select>
                 </div>
                 <div class="col-md-3 mt-3">
-                  <label for="password"
-                    >Semester<span class="imp-op">*</span></label
+                  <label for="password">Semester<span class="imp-op">*</span></label
                   >
                   <select name="semester" id="semester" class="form-control">
                     <option value="1">1</option>
@@ -172,8 +198,8 @@ include "master.php";
                     <option value="6">6</option>
                     <option value="7">7</option>
                     <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
+                    <!-- <option value="9">9</option>
+                    <option value="10">10</option> -->
                   </select>
                 </div>
                 <!-- <input required type="text" class="form-control"> -->
@@ -181,102 +207,35 @@ include "master.php";
               <div class="row">
                 <div class="col-md-6 mt-3">
                   <label for="council"
-                    >Council (Choose council which you want to join)<span
+                    >Roll Number<span
                       class="imp-op"
                       >*</span
                     ></label
                   >
-                  <select name="council" id="council" class="form-control">
-                    <option value="00">Choose Council</option>
-                    <option
-                      value="Technical Council
-                    "
-                    >
-                      Technical Council
-                    </option>
-                    <option
-                      value="Language and Literature Council
-                    "
-                    >
-                      Language and Literature Council
-                    </option>
-                    <option
-                      value="Media and Cultural Council
-                    "
-                    >
-                      Media and Cultural Council
-                    </option>
-                    <option
-                      value="Science Council
-                    "
-                    >
-                      Science Council
-                    </option>
-                    <option
-                      value="Management & Commerce Council
-                    "
-                    >
-                      Management & Commerce Council
-                    </option>
-                    <!-- <option value=""></option> -->
-                  </select>
+                  <input type="number" class="form-control" name="roll_no">
                 </div>
                 <div class="col-md-6 mt-3">
-                  <label for="council"
-                    >Club (Choose club which you want to join)<span
-                      class="imp-op"
-                      >*</span
-                    ></label
-                  >
+                  <label for="council">Club (Choose club which you want to join)<span class="imp-op">*</span></label>
                   <select name="club" id="club" class="form-control">
                     <option value="00">Choose Club</option>
-                    <option
-                      value="Computer Science Club
-                    "
-                    >
-                      Computer Science Club
-                    </option>
-                    <option
-                      value="Electrical Club
-                    "
-                    >
-                      Electrical Club
-                    </option>
-                    <option
-                      value="Robotics and Instrumental Club
-                    "
-                    >
-                      Robotics and Instrumental Club
-                    </option>
-                    <option
-                      value="Designing Club
-                    "
-                    >
-                      Designing Club
-                    </option>
-                    <option
-                      value="Mechanical Club
-                    "
-                    >
-                      Mechanical Club
-                    </option>
+                      <?php
+                        $club_list_query = "SELECT * FROM `club_info`";
+                        $club_list_output = mysqli_query($conn,$club_list_query);
 
-                    <option value="Language Club">Language Club</option>
-                    <option value="Reading Club">Reading Club</option>
-                    <option value="Writing Club">Writing Club</option>
-                    <option value="Debate Club">Debate Club</option>
-                    <option value="Drama Club">Drama Club</option>
-                    <option value="Music Club">Music Club</option>
-                    <option value="Poetry Club">Poetry Club</option>
-                    <option value="Script Writing Community">
-                      Script Writing Community
-                    </option>
-                    <option value="Video and Media Club">
-                      Video and Media Club
-                    </option>
-                    <option value="Anchor Community">Anchor Community</option>
-                    <!-- <option value=""></option> -->
-                    <!-- <option value=""></option> -->
+                        if(mysqli_num_rows($club_list_output)>0){
+                          while($data = mysqli_fetch_assoc($club_list_output)){
+                  
+                      ?>
+                      
+                        
+                        <option value="<?php echo $data['club_name']; ?>">
+                          <?php echo $data['club_name']; ?>
+                        </option>
+                      
+                      <?php
+                          }
+                        }
+                      ?>
                   </select>
                 </div>
               </div>

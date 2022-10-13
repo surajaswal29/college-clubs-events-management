@@ -48,11 +48,6 @@
           id="signup"
         >
           <div class="col-md-12">
-           <!-- <?php 
-            // echo"<pre>";
-              // print_r($_FILES);
-            // echo"</pre>";
-           ?> -->
             <form action="clubregistration" method="post" class="form p-md-5" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-md-6 mt-3 mt-3">

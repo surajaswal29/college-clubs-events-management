@@ -39,6 +39,8 @@
 
               if(mysqli_num_rows($output)>0){
                 $data = mysqli_fetch_assoc($output);
+                $_SESSION['id'] =  $data['id'];
+                $_SESSION['club_name'] =  $data['club'];
                 $_SESSION['user_name'] =  $data['firstname'];
                 $_SESSION['register_id'] =  $data['reg_id'];
 
