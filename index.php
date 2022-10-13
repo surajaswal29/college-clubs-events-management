@@ -48,7 +48,7 @@
           <div class="row mt-4 px-md-1">
           <div class="col-md-12">
             <!-- <h1>Technical and Cultural Societies</h1> -->
-            <h1 class="font-50">Student Clubs and Societies</h1>
+            <!-- <h1 class="font-50">Student Clubs and Societies</h1> -->
           </div>
           <div class="col-md-12">
             <p>
@@ -230,8 +230,9 @@
             */
 
         $(".simple-marquee-container").SimpleMarquee({
+          autostart: true,
           duration: 30000,
-          velocity: 0.1
+          velocity: 0.1,
         });
       });
     </script>

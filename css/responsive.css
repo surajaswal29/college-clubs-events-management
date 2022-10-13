@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px)  {
   .hnbgu-logo {
     border: 1px solid rgb(221, 220, 220);
   }
@@ -13,6 +13,21 @@
   }
   .fa-bars {
     font-size: 18px;
+  }
+  .sticky-header{
+    position: sticky  ;
+  }
+  .brand h1:nth-of-type(1){
+    font-size: 12px;
+  }
+  .brand h1:nth-of-type(2) {
+    font-size: 10px;
+    /* margin-bottom: 0; */
+  }
+  .hnbgu-logo .brand span {
+    /* display: block; */
+    /* text-align: center; */
+    font-size: 8px;
   }
   .hnbgu-navbar {
     padding: 10px 0px;
