@@ -9,7 +9,7 @@
               }
               ?>
               <a href="registration">Register a New Student</a>
-              <a href="soet">SOET - School of Engineering and Technology</a>
+              <a href="soet">School of Engineering and Technology</a>
               <a href="alumni">Alumni</a>
               <a href="about">About</a>
           </div>
