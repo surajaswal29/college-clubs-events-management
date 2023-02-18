@@ -25,26 +25,32 @@
         </form>
         <div class="terms mt-4 text-center">
           <span>Not Registered Yet?</span>
-          <a href="registration" class="border rounded p-1"
-            >Register Now</a
-          >
+          <a href="registration" class="border rounded p-1">Register Now</a>
         </div>
         <?php
             if(isset($_POST['submit'])){
               $email = $_POST['email'];
               $pass = $_POST['password'];
 
-              $query = "SELECT * FROM `users` WHERE email = '{$email}' AND password ='{$pass}' AND verified='1'";
+              $query = "SELECT * FROM `users` WHERE email = '{$email}' AND verified='1'";
               $output = mysqli_query($conn,$query);
 
               if(mysqli_num_rows($output)>0){
                 $data = mysqli_fetch_assoc($output);
-                $_SESSION['id'] =  $data['id'];
-                $_SESSION['club_name'] =  $data['club'];
-                $_SESSION['user_name'] =  $data['firstname'];
-                $_SESSION['register_id'] =  $data['reg_id'];
 
-                redirect('home');
+                if(password_verify($pass,$data['password'])){
+                  $_SESSION['id'] =  $data['id'];
+                  // $_SESSION['club_name'] =  $data['club'];
+                  $_SESSION['user_name'] =  $data['firstname'];
+                  $_SESSION['last_name'] =  $data['lastname'];
+                  $_SESSION['email'] =  $data['email'];
+                  $_SESSION['course'] =  $data['course'];
+                  $_SESSION['register_id'] =  $data['reg_id'];
+
+                  redirect('registeredclubs');
+                }else{
+                  echo"<span class='err'>Error: Username or Password does not match!</span>";
+                }
               }else{
                 echo"<span class='err'>Error: Username or Password does not match!</span>";
               }

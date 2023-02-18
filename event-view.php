@@ -7,6 +7,9 @@
        <div class="sub-banner item-3"></div>
     </section> -->
     <!-- HNBGU Council Event Lists -->
+    <?php
+    $club_name = $_GET['cc_name'];
+    ?>
     <section id="event-details">
       <main class="container">
         <div class="row">
@@ -23,7 +26,7 @@
                   ?>
                   <div class="event-poster mb-3">
                     <img
-                      src="images/<?php echo $data['event_image']; ?>"
+                      src="upload-image/<?php echo $data['event_image']; ?>"
                       alt="event poster"
                       title="Event Poster"
                     />
@@ -52,7 +55,7 @@
                   <?php echo $data['description']; ?>
                   </p>
                  
-                  <a href="join-event.html" class="join-event">Join Now</a>
+                  <a href="<?php echo (isset($_SESSION['register_id'])) ? 'joinEvent?ev_id='.$eventid.'&ev_tb='.$data['event_table'] : 'login' ?>" class="join-event">Join Now</a>
                 </div>
               </div>
             </div>
@@ -83,123 +86,7 @@
               <div class="col-md-12">
                 <div class="recent-events border rounded">
                   <h2>Recent Event</h2>
-                  <div class="recent-event-box border">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="event-img">
-                          <img
-                            src="https://www.taylor.edu/dA/78efae8f8f/image/robotics-thumb.jpg"
-                            alt="event images"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="event-meta">
-                          <span
-                            ><i class="fas fa-calendar-alt"></i>
-                            22-06-2022</span
-                          >
-                          <span
-                            ><i class="fas fa-users"></i> Computer Science
-                            Club</span
-                          >
-                        </div>
-                        <div class="event-description">
-                          <span><strong>Name:</strong> Hackathon 1.0</span>
-                          <span>
-                            <strong>Venue</strong>: HEMVATI NANDAN BAHUGUNA
-                            GARHWAL UNIVERSITY, Chaursa Campus
-                          </span>
-                          <span>
-                            <strong>Start Date:</strong> 22-06-2022 |
-                            <strong>End Date:</strong> 22-06-2022
-                          </span>
-                        </div>
-                        <div class="event-join">
-                          <!-- <a href="#" class="badge p-2 px-4">Join</a> -->
-                          <a href="event-view.html" class="badge p-1 px-2 mb-2"
-                            >View</a
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="recent-event-box border">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="event-img">
-                          <img src="images/hackathon.png" alt="event images" />
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="event-meta">
-                          <span
-                            ><i class="fas fa-calendar-alt"></i>
-                            22-06-2022</span
-                          >
-                          <span
-                            ><i class="fas fa-users"></i> Computer Science
-                            Club</span
-                          >
-                        </div>
-                        <div class="event-description">
-                          <span><strong>Name:</strong> Hackathon 1.0</span>
-                          <span>
-                            <strong>Venue</strong>: HEMVATI NANDAN BAHUGUNA
-                            GARHWAL UNIVERSITY, Chaursa Campus
-                          </span>
-                          <span>
-                            <strong>Start Date:</strong> 22-06-2022 |
-                            <strong>End Date:</strong> 22-06-2022
-                          </span>
-                        </div>
-                        <div class="event-join">
-                          <!-- <a href="#" class="badge p-2 px-4">Join</a> -->
-                          <a href="event-view.html" class="badge p-1 px-2 mb-2"
-                            >View</a
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="recent-event-box border">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="event-img">
-                          <img src="images/hackathon.png" alt="event images" />
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="event-meta">
-                          <span
-                            ><i class="fas fa-calendar-alt"></i>
-                            22-06-2022</span
-                          >
-                          <span
-                            ><i class="fas fa-users"></i> Computer Science
-                            Club</span
-                          >
-                        </div>
-                        <div class="event-description">
-                          <span><strong>Name:</strong> Hackathon 1.0</span>
-                          <span>
-                            <strong>Venue</strong>: HEMVATI NANDAN BAHUGUNA
-                            GARHWAL UNIVERSITY, Chaursa Campus
-                          </span>
-                          <span>
-                            <strong>Start Date:</strong> 22-06-2022 |
-                            <strong>End Date:</strong> 22-06-2022
-                          </span>
-                        </div>
-                        <div class="event-join">
-                          <!-- <a href="#" class="badge p-2 px-4">Join</a> -->
-                          <a href="event-view.html" class="badge p-1 px-2 mb-2"
-                            >View</a
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <?php include "recent-event.php"; ?>
                 </div>
               </div>
             </div>
@@ -207,7 +94,5 @@
         </div>
       </main>
     </section>
-    <!-- Footer -->
-    <?php include "footer.php" ?>
-  </body>
-</html>
+<!-- Footer -->
+<?php include "footer.php" ?>

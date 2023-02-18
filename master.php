@@ -22,6 +22,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"
     />
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <!-- Fontawesome cdn -->
     <link
       rel="stylesheet"

@@ -9,7 +9,7 @@
               class="img-fluid"
             />
           </div>
-          <div class="brand">
+          <div class="brand" id="brand">
             <h1>HEMVATI NANDAN BAHUGUNA GARHWAL UNIVERSITY</h1>
             <span>A Central University</span>
           </div>

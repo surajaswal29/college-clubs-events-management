@@ -22,7 +22,33 @@
             <nav class="nav nav-color-bg">
                 <a class="nav-link btn mx-2 text-light" href="main.php">Home</a>
                 <a class="nav-link btn mx-2 text-light" href="event-add.php">Add Event</a>
-                <a class="nav-link btn mx-2 text-light" href="add-student.php">Add Student</a>
+                <?php 
+                    $student_notification = "SELECT * FROM users WHERE verified = 0";
+                    $student_notification_query = mysqli_query($conn,$student_notification);
+
+                    $count_student_notification = mysqli_num_rows($student_notification_query);
+                ?>
+                <a class="nav-link btn mx-2 text-light" href="add-student.php">Add Student
+
+                <?php
+                    if($count_student_notification>0){
+                        echo "<sup class='text-danger fw-bold bg-light px-1 rounded-circle'>".$count_student_notification."</sup>";
+                    }
+                    ?>
+                </a>
+                <?php 
+                    $club_notification = "SELECT * FROM club_info WHERE verify = 0";
+                    $club_notification_query = mysqli_query($conn,$club_notification);
+
+                    $count_club_notification = mysqli_num_rows($club_notification_query);
+                ?>
+                <a class="nav-link btn mx-2 text-light" href="add-clubs.php">Club Request
+                    <?php
+                    if($count_club_notification>0){
+                        echo "<sup class='text-danger fw-bold bg-light px-1 rounded-circle'>".$count_club_notification."</sup>";
+                    }
+                    ?>
+                </a>
                 <a class="nav-link btn mx-2 text-light" href="message.php">Message</a>
             </nav>
         </div>

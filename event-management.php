@@ -1,16 +1,19 @@
 <?php 
   include "master.php";
   include "header.php";
-?>
-<?php
+
   if(isset($_POST['submit'])){
-      $e_name = $_POST['event_name'];
+      $e_name = mysqli_real_escape_string($conn, $_POST['event_name']);
       $e_venue = $_POST['event_venue'];
       $s_date = $_POST['start_date'];
       $e_date = $_POST['end_date'];
-      $e_organizer = $_POST['club'];
+      $e_organizer = mysqli_real_escape_string($conn, $_POST['club']);
       $description =mysqli_real_escape_string($conn, $_POST['desc']);
       $date = date('Y-m-d');
+
+      $tb_event_name = strtolower(str_ireplace(' ','',$e_name));
+      $table_event = '_tb_'.$tb_event_name;
+
 
       $image_name = $_FILES['event_image']['name'];
       $file_type = $_FILES['event_image']['type'];
@@ -20,13 +23,24 @@
       $destination = 'upload-image/'.$image_name;
       if(move_uploaded_file($temp_name, $destination)){
         $query = "INSERT INTO `event-list` 
-                (`event_name`, `event_venue`, `organizer`, `description`, `start_date`, `end_date`, `event_image`, `date`) 
+                (`event_name`, `event_venue`, `organizer`, `description`, `start_date`, `end_date`, `event_image`,`event_table`, `date`) 
                 VALUES 
-                ('{$e_name}', '{$e_venue}', '{$e_organizer}', '{$description}', '{$s_date}', '{$e_date}', '{$image_name}', '{$date}')";
+                ('{$e_name}', '{$e_venue}', '{$e_organizer}', '{$description}', '{$s_date}', '{$e_date}', '{$image_name}','{$table_event}', '{$date}')";
         $output = mysqli_query($conn,$query);
 
         if($output){
-          redirect('eventmanagement');
+          $createEventTable = 
+          "CREATE TABLE `$table_event`(
+              id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+              joiner_id VARCHAR(100) NOT NULL,
+              joiner_name VARCHAR(100) NOT NULL,
+              joiner_email VARCHAR(100) NOT NULL,
+              joinDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+          )";
+          $createTableQuery = mysqli_query($conn,$createEventTable);
+            if($createTableQuery){
+              redirect('eventmanagement');
+            }
         }else{
           echo"Error";
         }
@@ -36,6 +50,13 @@
   }
 ?>
 <div class="form-wrap">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="home">Home</a></li>
+                    <li class="breadcrumb-item"><a href="eventdashboard?club=<?php echo $_GET['club']; ?>">eventdashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Event</li>
+                  </ol>
+                </nav>
       <div class="container shadow">
         <div class="row">
           <div class="col-md-12 m-0 p-0 form-heading">
@@ -47,11 +68,6 @@
           id="signup"
         >
           <div class="col-md-12">
-           <!-- <?php 
-            // echo"<pre>";
-              // print_r($_FILES);
-            // echo"</pre>";
-           ?> -->
             <form action="eventmanagement" method="post" class="form p-md-5" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-md-6 mt-3 mt-3">

@@ -19,7 +19,7 @@
                 <ul class="mt-4">
                   <?php
 
-                    $sql = "SELECT * FROM club_info";
+                    $sql = "SELECT * FROM club_info WHERE verify=1";
                     $result = mysqli_query($conn,$sql);
 
                     if(mysqli_num_rows($result)>0){

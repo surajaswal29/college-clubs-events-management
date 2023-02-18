@@ -1,10 +1,13 @@
 <?php
     if(isset($_SESSION['register_id'])){
-      $event_query = "SELECT * FROM users WHERE reg_id = '{$_SESSION['register_id']}' AND role='director'";
+
+      $club_user_table = "_cb_".strtolower(str_ireplace(' ','',str_ireplace('club','',$_GET['cc_name'])));
+
+      $event_query = "SELECT * FROM `$club_user_table` WHERE joiner_id = '{$_SESSION['register_id']}' AND joiner_role='director'";
       $event_output = mysqli_query($conn,$event_query);
 
       if(mysqli_num_rows($event_output)){
-        echo "<a href='eventmanagement' class='btn btn-primary'>Event Management</a>";
+        echo "<a href='eventdashboard?club=".$_GET['cc_name']."' class='btn btn-primary'>Event Management</a>";
       }
     }
 ?>

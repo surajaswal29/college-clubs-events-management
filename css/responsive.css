@@ -11,6 +11,12 @@
   .hnbgu-logo .brand span {
     font-size: 12px;
   }
+  .footer-section {
+    width: 100%;
+  }
+  .footer-section:last-of-type {
+    width: 100%;
+  }
   .fa-bars {
     font-size: 18px;
   }
@@ -57,12 +63,26 @@
     background-position: center;
     /* margin: 20px; */
   }
+  .club-banner {
+    height: 180px;
+  }
+  .club-sub {
+    transform: translateY(-2%);
+    padding: 10px 15px;
+  }
+  .club-sub h1 {
+    font-size: 1.8rem;
+  }
   .sub-banner {
     height: 120px;
   }
+  .event-container h2,
+  .club-member h2 {
+    font-size: 1.8rem;
+  }
   .owl-next,
   .owl-prev {
-    top: 40%;
+    top: 25%;
   }
   .tcc-img {
     flex-wrap: wrap !important;

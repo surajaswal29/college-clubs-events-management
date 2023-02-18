@@ -1,59 +1,10 @@
-<!-- <footer class="main-wrap mt-5">
-      <div class="footer-wrap">
-        <div class="footer-wrap-1">
-          <div class="col-md-12 footer">
-            <h4>
-              HNBGU Councils & Clubs | H.N.B.Garhwal University, Srinagar |
-              District Garhwal, Uttarakhand
-            </h4>
-          </div>
-        </div>
-        <div class="footer-wrap-2">
-          <div class="line"></div>
-          <div class="social-link">
-            <a href="#">
-              <img src="images/sm/fb.png" alt="Facebook" />
-            </a>
-            <a href="https://www.instagram.com/tccforsoet/">
-              <img src="images/sm/ins.png" alt="instagram" />
-            </a>
-            <a href="#">
-              <img src="images/sm/linkedin.png" alt="linkedin" />
-            </a>
-            <a href="#">
-              <img src="images/sm/twitter.png" alt="twitter" />
-            </a>
-            <a href="#"> <img src="images/sm/youtube.png" alt="youtube" /> </a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="first-box">
-          <a href="#">Terms & Conditions</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Sitemap</a>
-          <a href="#">Feedback</a>
-          <a href="https://www.hnbgu.ac.in/" target="_blank"
-            >University Webiste</a
-          >
-        </div>
-        <div class="last-box">
-          <a href="#"
-            >&copy; Copyright 2022 HNBGU Councils & Clubs. All rights
-            reserved.</a
-          >
-        </div>
-      </div> -->
-    <!-- </footer> -->
-
-
     <div class="main-wrap">
             <div class="footer-wrap">
                 <div class="footer-wrap-1">
                     <div class="footer-section">
                         <h1>About</h1>
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, doloribus fugiat amet dolorum assumenda aut. Neque ab beatae corporis exercitationem.
+                        <p class='text-justify'>
+                            Student clubs are essential part of student life. HNBGU Clubs welcomes the contributions of student clubs and aims to promote a lively, creative and inclusive range of activities by providing support, resources and guidance for managing the clubs effectively.                       
                         </p>
                     </div>
                     <div class="footer-section">
@@ -65,33 +16,40 @@
                     </div>
                     <div class="footer-section">
                         <h1>Contact</h1>
-                        <a href="#">+91-xxxxxxxxxx</a>
-                        <a href="mailto:">xxxxx@xxx.com</a>
-                        <a href="#">xxxxx</a>
+                        <a href="mailto:">councilandclubs@gmail.com</a>
+                        <a href="#">+91-7037672652</a>
+                        <a href="#">+91-8923229233</a>
+                        <a href="#">+91-7088794524</a>
                     </div>
                     <div class="footer-section">
-                        <h1>Councils & Clubs</h1>
-                        <a href="#">Technical Council</a>
-                        <a href="#">Language and Literature Council</a>
-                        <a href="#">Media and Cultural Council</a>
-                        <a href="#">Science Council</a>
-                        <a href="#">Management & Commerce Council</a>
+                      <h1>Councils & Clubs</h1>
+                      <?php
+                        $club_list_footer = "SELECT * FROM club_info";
+                        $club_list_footer_query = mysqli_query($conn,$club_list_footer);
+
+                        if(mysqli_num_rows($club_list_footer_query)){
+                          while($data = mysqli_fetch_assoc($club_list_footer_query)){
+                            echo'<a href="'.$data['club_name'].'">'.$data['club_name'].'</a>';
+                          }
+                        }
+                      ?>
+                     
                     </div>
                 </div>
                 <div class="footer-wrap-2">
                     <div class="line"></div>
                     <div class="social-link">
-                        <a href="#">
-                            <img src="images/fb.png" alt="Facebook">
+                        <a href="https://www.instagram.com/hnbguclubs/?hl=en">
+                            <img src="images/sm/fb.png" alt="Facebook">
                         </a>
-                        <a href="#">
-                            <img src="images/google.png" alt="Google">
+                        <a href="https://www.instagram.com/hnbguclubs/?hl=en">
+                            <img src="images/sm/ins.png" alt="Instagram">
                         </a>
-                        <a href="#">
-                            <img src="images/linkedin.png" alt="linkedin">
+                        <a href="https://www.instagram.com/hnbguclubs/?hl=en">
+                            <img src="images/sm/linkedin.png" alt="linkedin">
                         </a>
-                        <a href="#">
-                            <img src="images/twitter.png" alt="twitter">
+                        <a href="https://www.instagram.com/hnbguclubs/?hl=en">
+                            <img src="images/sm/twitter.png" alt="twitter">
                         </a>
                     </div>
                 </div>
@@ -100,10 +58,10 @@
                 <div class="first-box">
                     <a href="#">Terms & Conditions</a>
                     <a href="#">Privacy Policy</a>
-                    <a href="https://surajaswal.dev">Developer Information</a>
+                    <a href="https://github.com/surajaswal29">Developer Information</a>
                 </div>
                 <div class="last-box">
-                    <a href="#">&copy; Copyright <?php echo date('Y'); ?> HNBGU Councils & Clubs</a>
+                    <a href="#">&copy; Copyright <?php echo date('Y'); ?> https://hnbguclubs.live</a>
                 </div>
             </div>
         </div>

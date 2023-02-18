@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row mt-4">
         <div class="col-md-12">
-            <h2 class="bg-dark border rounded text-light p-1">Add Student</h2>
+            <h2 class="bg-dark border rounded text-light px-2 py-1">Verify Student</h2>
         </div>
     </div>
     <div class="row">

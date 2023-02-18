@@ -8,12 +8,14 @@ RewriteRule ^userlogout?$ user-logout.php
 RewriteRule ^login?$ login.php
 RewriteRule ^registration?$ registration.php
 RewriteRule ^clubs?$ club-view.php
+RewriteRule ^eventdashboard?$ event-dashboard.php
 RewriteRule ^eventmanagement?$ event-management.php
 RewriteRule ^event_view?$ event-view.php
 RewriteRule ^alumni?$ alumni.php
 RewriteRule ^clubregistration?$ club-registration.php
 RewriteRule ^registeredclubs?$ club-list.php
 RewriteRule ^profile?$ view-profile.php
-RewriteRule ^verification?$ verification.php
+RewriteRule ^userJoinClub?$ club-join-registration.php
 RewriteRule ^clublist?$ club-list.php
 RewriteRule ^soet?$ soet.php
+RewriteRule ^joinEvent?$ join-event.php

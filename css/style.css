@@ -32,8 +32,11 @@ body {
 .hnbgu-logo {
   padding: 15px;
 }
+.hnbgu-logo {
+  padding: 15px;
+}
 .hnbgu-logo .logo {
-  width: 90px;
+  width: 80px;
   margin-right: 15px;
 }
 .sticky-header {
@@ -41,6 +44,10 @@ body {
   top: 0%;
   z-index: 3000;
   background-color: var(--hnbgu-text-color);
+  /* background: linear-gradient(90deg,white,rgba(255, 255, 255, 0.685)); */
+  outline: none;
+  /* backdrop-filter: blur(10px); */
+  border-style: none;
 }
 .font-50 {
   font-size: 50px;
@@ -53,18 +60,23 @@ body {
 .instagram {
   width: 300px;
 }
-.brand h1 {
+.brand h1:nth-of-type(1) {
   font-family: "Oswald", "sans-serif";
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.1;
   margin-bottom: 0;
+}
+.brand h1:nth-of-type(2) {
+  font-family: "Oswald", "sans-serif";
+  font-size: 12px;
+  margin-bottom: 0rem;
 }
 .hnbgu-logo .brand span {
   /* display: block; */
   /* text-align: center; */
   position: relative;
   padding: 0px 50px;
-  font-size: 14px;
+  font-size: 12px;
 }
 .brand span::before,
 .brand span::after {
@@ -136,10 +148,11 @@ body {
 }
 .main-banner,
 .club-banner {
-  height: 440px;
+  height: 500px;
   width: 100%;
-  background-size: 100%;
+  /* background-size: 100%; */
   background-position: center;
+  background-size: contain;
 }
 .sub-banner {
   height: 280px;
@@ -227,10 +240,16 @@ body {
 .owl-carousel .owl-nav button.owl-prev,
 .owl-carousel .owl-nav button.owl-next {
   position: absolute;
-  font-size: 18px;
+  font-size: 4rem;
+  color: #f0ebeb;
   padding: 10px 4px !important;
-  background: #fff !important;
+  /* background: #fff !important; */
   /* margin: 2px 10px; */
+}
+.no-js .owl-carousel,
+.owl-carousel.owl-loaded {
+  display: block;
+  overflow: hidden;
 }
 .owl-prev {
   top: 50%;
@@ -275,12 +294,17 @@ body {
 .club-banner img {
   width: 100%;
   height: 100%;
+  image-rendering: optimizeSpeed;
 }
 .club-sub {
-  transform: translateY(-6%);
+  transform: translateY(-8%);
   padding: 10px 25px;
   background-color: #fff;
   box-shadow: -4px -4px 30px hsla(0, 0%, 0%, 0.212);
+}
+.club-sub p {
+  text-align: justify;
+  text-justify: auto;
 }
 .bg-profile {
   background-color: #f1f1f1;
@@ -294,6 +318,20 @@ body {
   justify-content: space-between;
   align-items: center;
   /* color: #fff; */
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.otp-form {
+  width: 300px;
+  height: auto;
+  border: 1px solid #b9b8b8;
+  padding: 20px;
 }
 .hnbgu-clubs {
   transition: all 0.5s, transform 1ms;
@@ -359,7 +397,7 @@ body {
 .member-box {
   /* padding: 10px; */
   overflow: auto;
-  height: 400px;
+  max-height: 400px;
 }
 .member-box::-webkit-scrollbar-track {
   background-color: #ffffff;
@@ -818,12 +856,13 @@ label {
 }
 .recent-event-box .event-img {
   width: 100%;
-  height: 120px;
+  height: 130px;
 }
 .main-card-box {
   /* width: 300px; */
   display: block;
   margin: 15px 0px;
+  background: #fcfcfcf8 !important;
 }
 .recent-event-box .event-img img {
   width: 100%;
@@ -949,6 +988,29 @@ label {
   width: 14px;
   height: 14px;
 }
+.sc-color-link {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.ins-color {
+  background-image: linear-gradient(
+    to right,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #ffdc80
+  );
+}
+.tw-color {
+  background: #55acee;
+}
+.ln-color {
+  background: #0077b5;
+}
+.fb-color {
+  background: #3b5998;
+}
 .footer-bottom {
   background: rgb(12, 12, 12);
   width: 100%;
@@ -967,4 +1029,8 @@ label {
 }
 .last-box {
   margin-right: 20px;
+}
+
+.simple-marquee-container {
+  background-color: #262626;
 }

@@ -8,7 +8,7 @@
         </section> -->
     <!-- HNBGU Council Event Lists -->
     <div class="club-banner">
-      <img src="images/event-banner.jpg" alt="Club Banner">
+      <img src="https://res.cloudinary.com/dc8yxs895/image/upload/v1676539562/audi2_hqsoxy.jpg" alt="Club Banner">
     </div>
       <!-- <div class="container club-sub"> -->
     <section id="event-list" class="container-fluid">

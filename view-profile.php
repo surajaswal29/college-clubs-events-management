@@ -25,16 +25,10 @@
           <div class="col-md-12 bg-profile">
             <form action="#" method="post" class="form p-md-5">
               <div class="row">
-                <div class="col-md-6 mt-3 mt-3">
+                <div class="col-md-12 mt-3 mt-3">
                   <label for="username">Name</label>
                   <input disabled type="text" name="email" value="<?php echo $data['firstname']." ".$data['lastname']; ?>" class="form-control input-white" />
                 </div>
-                    <div class="col-md-6 mt-3">
-                    <label for="Social">Role</label>
-                    
-                        
-                        <input disabled type="text" name="role_update" value="<?php echo $data['role']; ?>" class="form-control"/>
-                    </div>
               </div>
               <div class="row">
                 <div class="col-md-6 mt-3">
@@ -58,28 +52,25 @@
                   >
                   <input disabled type="text" name="department" value="<?php echo $data['department']; ?>" class="form-control" />
                 </div>
-                <div class="col-md-2 mt-3">
+                <div class="col-md-1 mt-3">
                   <label for="password"
                     >Course</label
                   >
                   <input disabled type="text" name="year" value="<?php echo $data['course']; ?>" class="form-control" />
                 </div>
-                <div class="col-md-2 mt-3">
+                <div class="col-md-1 mt-3">
                   <label for="password"
                     >Year</label
                   >
                   <input disabled type="text" name="year" value="<?php echo $data['year']; ?>" class="form-control" />
                 </div>
-                <div class="col-md-2 mt-3">
+                <div class="col-md-1 mt-3">
                   <label for="semester"
                     >Semester</label
                   >
                   <input disabled type="text" name="semester" value="<?php echo $data['semester']; ?>" class="form-control" />
                 </div>
-                <!-- <input disabled type="text" class="form-control"> -->
-              </div>
-              <div class="row">
-                <div class="col-md-6 mt-3">
+                <div class="col-md-3 mt-3">
                   <label for="council"
                     >Roll No<span
                       class="imp-op"
@@ -88,14 +79,9 @@
                   >
                   <input disabled type="text" name="council" value="<?php echo $data['roll_no']; ?>" class="form-control" />
                 </div>
-                <div class="col-md-6 mt-3">
-                  <label for="club"
-                    >Club
-                    </label
-                  >
-                  <input disabled type="text" name="club" value="<?php echo $data['club']; ?>" class="form-control" />
-                </div>
+                <!-- <input disabled type="text" class="form-control"> -->
               </div>
+              
 
               <div class="row">
                 <div class="col-md-6 mt-3">
@@ -113,33 +99,6 @@
                   <input name="aoi" id="aoi" value="<?php echo $data['aoi']; ?>" class="form-control" disabled/>
                 </div>
               </div>
-              
-              <div class="row">
-                <div class="col-md-4 mt-3">
-                  <label for="Social">Role</label>
-                 
-                      
-                    <input disabled type="text" name="role_update" value="<?php echo $data['role']; ?>" class="form-control"/>
-                  
-                  
-                  
-                  <?php
-                  if(isset($_POST['update'])){
-                    $role = $_POST['role_update'];
-
-                    $sql_role = "UPDATE users SET role='{$role}', verified='1' WHERE reg_id = '{$student_id}'";
-                    $output_role = mysqli_query($conn,$sql_role);
-
-                    if($output_role){
-                        echo "<script>alert('Student Verified')</script>";
-                        redirect('student-add-view.php?reg_id='.$student_id);
-                    }else{
-                        echo "Error!";
-                    }
-                  }
-                  ?>
-                </div>
-            </div>
             </form>
           </div>
         </div>

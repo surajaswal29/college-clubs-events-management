@@ -43,8 +43,9 @@
       referrerpolicy="no-referrer"
     />
     <!-- main CSS file -->
+    <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="css/admin.css" />
-    <!-- <link rel="stylesheet" href="css/responsive.css" /> -->
+    
 
     <!-- script file -->
     <script
@@ -61,6 +62,7 @@
       referrerpolicy="no-referrer"
     ></script>
     <!-- main js file -->
-    <!-- <script src="js/main.js" defer></script> -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+    <script src="../js/main.js" defer></script>
   </head>
   <body>

@@ -49,7 +49,7 @@ if (password && cPassword) {
     }
   });
 
-  cPassword.addEventListener("focusout", function () {
+  cPassword.addEventListener("input", function () {
     // if (cPassword.value != "") {
     if (cPassword.value == password.value) {
       passErr[1].textContent = "Password Matched!";

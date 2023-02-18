@@ -3,15 +3,21 @@
                 <h2 class="pr-center-2"><span>Events</span> 
                 
                 <?php 
-                if(isset($_GET['cc_name'])){
-                  if($_SESSION['club_name'] == $_GET['cc_name'] ){
-                    include "event-management-code.php";
+                  if(isset($_GET['cc_name'])){
+                    // if($_SESSION['club_name'] == $_GET['cc_name'] ){
+                      include "event-management-code.php";
+                    // }
                   }
-                }
                 ?>
                 </h2>
                 <?php
-                  $event_view = 'SELECT * FROM `event-list`';
+                // development phase
+                if($_SERVER['SCRIPT_NAME'] == '/hnbguclubs/hnbguclubs/club-view.php'){
+                  $event_view = "SELECT * FROM `event-list` WHERE organizer = '{$_GET['cc_name']}' AND end_date>CURRENT_DATE()";
+                }else if($_SERVER['SCRIPT_NAME'] == "/hnbguclubs/hnbguclubs/event-list.php"){
+                  $event_view = "SELECT * FROM `event-list`";
+                }
+                  
                   $event_output = mysqli_query($conn,$event_view);
 
                   if(mysqli_num_rows($event_output)){
@@ -45,10 +51,8 @@
                         </span>
                       </div>
                       <div class="event-join mt-1">
-                        <a href="join_event" class="badge p-2 px-4">Join</a>
-                        <a href="event_view?event_id=<?php echo $data['id']; ?>" class="badge p-2 px-4"
-                          >View</a
-                        >
+                        <!-- <a href="join_event" class="badge p-2 px-4">Join</a> -->
+                        <a href="event_view?event_id=<?php echo $data['id'].'&cc_name='.$data['organizer']; ?>" class="badge p-2 px-4 bg-primary">View</a>
                       </div>
                     </div>
                   </div>

@@ -2,28 +2,27 @@
   include "master.php";
   include "header.php";
   // echo bin2hex(random_bytes(16));
+
+  $banner_sql = "SELECT * FROM `main-banner`";
+  $banner_sql_query = mysqli_query($conn,$banner_sql);
 ?>
     <!-- HNBGU Council Main Banner -->
     <section id="banner">
       <div class="owl-carousel">
         <!-- <div class="main-banner item-1"></div>
         <div class="main-banner item-2"></div> -->
-        <div class="main-banner item-3">
-            <img src="images/bg-image.jpg" alt="">
-            <div class="overlay-banner"></div>
-        </div>
-        <div class="main-banner item-4">
-            <img src="images/bg-image.jpg" alt="">
-            <div class="overlay-banner"></div>
-        </div>
-        <div class="main-banner item-3">
-            <img src="images/bg-image.jpg" alt="">
-            <div class="overlay-banner"></div>
-        </div>
-        <div class="main-banner item-4">
-            <img src="images/bg-image.jpg" alt="">
-            <div class="overlay-banner"></div>
-        </div>
+        <?php
+        if(mysqli_num_rows($banner_sql_query)>0){
+          while($banner_data = mysqli_fetch_assoc($banner_sql_query)){
+        
+              echo'<div class="main-banner item-3">
+                  <img src="'.$banner_data['banner-image'].'" alt="'.$banner_data['banner-description'].'">
+                  <div class="overlay-banner"></div>
+              </div>';
+        
+         }
+        }
+        ?>
       </div>
     </section>
     <div class="content">
@@ -31,11 +30,16 @@
         <div class="marquee-sibling">Notification</div>
         <div class="marquee">
           <ul class="marquee-content-items">
-            <li>Student Clubs and Societies</li>
-            <li>Student Clubs and Societies</li>
-            <li>Student Clubs and Societies</li>
-            <li>Student Clubs and Societies</li>
-            <li>Student Clubs and Societies</li>
+            <?php
+              $marquee_SQL = "SELECT * FROM club_info";
+              $marquee_SQL_query=mysqli_query($conn,$marquee_SQL);
+
+              if(mysqli_num_rows($marquee_SQL_query)>0){
+                while($data = mysqli_fetch_assoc($marquee_SQL_query)){
+                  echo'<li>'.$data['club_name'].'</li>';
+                }
+              }
+            ?>
           </ul>
         </div>
       </div>
@@ -46,33 +50,48 @@
         <div class="col-md-9 hnbgu-council-tab">
           <main class="container">
           <div class="row mt-4 px-md-1">
-          <div class="col-md-12">
-            <!-- <h1>Technical and Cultural Societies</h1> -->
-            <h1 class="font-50">Student Clubs and Societies</h1>
-          </div>
-          <div class="col-md-12">
-            <p>
-              Student Clubs and Societies have a lot to offer. Whether you join as a
-              member or choose to lead one, simply taking part in an
-              extracurricular group will enhance your college experience. Gaining
-              skills, making connections, and broadening your knowledge through a
-              student organization will help you become a more well-rounded
-              individual — one that’s ready to take on their future career!
-            </p>
-            <p>
-              Student clubs, societies and publications are essential part of student life. The University welcomes the contributions of student clubs and aims to promote a lively, creative and inclusive range of activities by providing support, resources and guidance for committees to manage their clubs effectively.
-            </p>
-          </div>
-          <div class="col-12 mt-2">
-            <p>University encourages the students to participate in all activities conducted by the clubs and Societies.</p>
-            <!-- <p>The following clubs and councils have been registered.</p> -->
-          </div>
+              <div class="col-md-12">
+                <!-- <h1>Technical and Cultural Societies</h1> -->
+                <h1 class="font-50">Student Clubs and Societies</h1>
+              </div>
+              <div class="col-md-12">
+                <p style = "text-align: justify">
+                  Student Clubs and Societies have a lot to offer. Whether you join as a
+                  member or choose to lead one, simply taking part in an
+                  extracurricular group will enhance your college experience. Gaining
+                  skills, making connections, and broadening your knowledge through a
+                  student organization will help you become a more well-rounded
+                  individual — one that’s ready to take on their future career!
+                </p>
+                <!-- <p class='>
+                  Student clubs, societies and publications are essential part of student life. The University welcomes the contributions of student clubs and aims to promote a lively, creative and inclusive range of activities by providing support, resources and guidance for committees to manage their clubs effectively.
+                </p> -->
+              </div>
           </div>
           <div class="row">
               <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-4">
-                      <a href="clubregistration" class="recent-event-box main-card-box text-decoration-none text-dark">
+                      <a href="<?php echo (isset($_SESSION['user_name']))?'userJoinClub':'login' ?>" class="recent-event-box main-card-box text-decoration-none text-dark">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <div class="event-img">
+                                    <img
+                                      src="images/register-img.jpg"
+                                      alt="event images"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                  <h4>Join a Club</h4>
+                                  <p>Join your favrioute clubs</p>
+                                </div>
+                              </div>
+                      </a>
+                    </div>
+
+                    <div class="col-md-4">
+                      <a href="<?php echo (isset($_SESSION['user_name']))?'clubregistration':'login' ?>" class="recent-event-box main-card-box text-decoration-none text-dark">
                               <div class="row">
                                 <div class="col-md-12">
                                   <div class="event-img">
@@ -84,7 +103,7 @@
                                 </div>
                                 <div class="col-md-12 mt-2">
                                   <h4>Register a Club</h4>
-                                  <p>Guidance and application process to register a club</p>
+                                  <p>Submit New Club Registration Request</p>
                                 </div>
                               </div>
                       </a>
@@ -103,13 +122,13 @@
                                 </div>
                                 <div class="col-md-12 mt-2">
                                   <h4>List of clubs</h4>
-                                  <p>A list of registered clubs, societies and publications</p>
+                                  <p>A list of registered clubs</p>
                                 </div>
                               </div>
                       </a>
                     </div>
 
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
                       <a href="soet" class="recent-event-box main-card-box text-decoration-none text-dark">
                               <div class="row">
                                 <div class="col-md-12">
@@ -126,7 +145,7 @@
                                 </div>
                               </div>
                       </a>
-                    </div>
+                    </div> -->
 
                     <div class="col-md-4">
                       <a href="#" class="recent-event-box main-card-box text-decoration-none text-dark">
@@ -205,6 +224,8 @@
           loop: true,
           autoplay: true,
           dots: true,
+          // stagePadding:10,
+          // margin:20
         });
       });
 
