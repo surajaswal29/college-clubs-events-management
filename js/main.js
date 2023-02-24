@@ -7,6 +7,8 @@ const hamMenuDropdown = document.querySelector("#hnbgu-nav-links");
 const password = document.querySelector("#pass");
 const cPassword = document.querySelector("#c-pass");
 const passErr = document.querySelectorAll("#passError");
+const qrImgae = document.querySelector('#qr-img');
+const eventType=document.querySelector('#etype');
 const submitButton = document.querySelector("#reg-submit");
 
 // performing event for every node
@@ -85,6 +87,8 @@ if (filebtn && imgDetails && imgContainer) {
     imgDetails.innerHTML = htmlText;
   });
 }
+
+if(document.querySelector('#editor')){
 ClassicEditor.create(document.querySelector("#editor"))
   .then((editor) => {
     console.log(editor);
@@ -92,3 +96,14 @@ ClassicEditor.create(document.querySelector("#editor"))
   .catch((error) => {
     console.error(error);
   });
+}
+
+if(qrImgae){
+  eventType.addEventListener('change',()=>{
+    if(eventType.value === 'paid'){
+      qrImgae.classList.remove('paid-hide');
+    }else{
+      qrImgae.classList.add('paid-hide');
+    }
+  });
+}

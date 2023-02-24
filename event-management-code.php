@@ -7,7 +7,7 @@
       $event_output = mysqli_query($conn,$event_query);
 
       if(mysqli_num_rows($event_output)){
-        echo "<a href='eventdashboard?club=".$_GET['cc_name']."' class='btn btn-primary'>Event Management</a>";
+        echo "<a href='eventdashboard?club=".$_GET['cc_name']."&c_id=".$_GET['club_id']."' class='btn btn-primary'>Event Management</a>";
       }
     }
 ?>

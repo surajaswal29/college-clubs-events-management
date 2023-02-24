@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-md-9 hnbgu-council-tab px-md-4">
           <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -15,7 +15,7 @@
                     <li class="breadcrumb-item active" aria-current="page">Clubs</li>
                   </ol>
                 </nav>
-                <h1 class="mt-5">Registered Clubs and Societies</h1>
+                <h1 class="mt-5">Registered Clubs</h1>
                 <ul class="mt-4">
                   <?php
 
@@ -30,7 +30,7 @@
                     <div class="row">
                       <div class="col-12" id="down-tab">
                           <h3><a href="clubs?cc_name=<?php echo $data['club_name'].'&club_id='.$data['id']; ?>" class="club-link"><?php echo $data['club_name'] ?></a></h3>
-                          <p><?php echo substr($data['club_description'], 0,150) ?></p>
+                          <p><?php echo substr($data['club_description'], 0,150).'...' ?></p>
                         
                         <!-- <i class="fas fa-angle-down"></i> -->
                       </div>

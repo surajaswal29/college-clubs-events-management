@@ -9,7 +9,7 @@
               }
               ?>
               <a href="registration">Join a Club</a>
-              <a href="#">Alumni</a>
+              <a href="registeredclubs">Clubs</a>
               <a href="contact">Contact us</a>
               <a href="about">About</a>
           </div>
@@ -18,7 +18,7 @@
               <h4>Contact details</h4>
               <p>H.N.B.Garhwal University, Srinagar – 246174, Dist.Garhwal (Uttarakhand), India</p>
               <a href="#" class="nav-link text-dark"><b>Phone:</b> +91-7037672652</a>
-              <a href="#" class="nav-link text-dark"><b>Email:</b> councilandclubs@mail.com</a>
+              <a href="#" class="nav-link text-dark"><b>Email:</b> councilandclubs@gmail.com</a>
           </div>
           <div class="useful-links mt-5">
             <h4>Socials</h4>

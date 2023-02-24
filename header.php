@@ -1,7 +1,7 @@
 <!-- HNBGU Council Header -->
 <header class="container-fluid sticky-header">
       <div class="row border-bottom">
-        <div class="col-md-5 hnbgu-logo pr-center">
+        <div class="col-md-5 hnbgu-logo d-flex align-items-center">
           <div class="logo">
             <img
               src="images/HNBG-new-logo.png"
@@ -17,22 +17,25 @@
         <div class="col-md-7 pr-center-1 bg-md-dark">
           <nav class="hnbgu-navbar dp-sb">
             <a href="home"><i class="fas fa-home"></i> Home</a>
-            <a href="#" class="ham-default" id="ham-default"
-              ><i class="fas fa-bars"></i
-            ></a>
-            <div class="hnbgu-nav-links hide-navbar" id="hnbgu-nav-links">
+            <a href="#" class="ham-default" id="ham-default"><i class="fas fa-bars"></i></a>
+            <div class="hnbgu-nav-links hide-navbar pr-center" id="hnbgu-nav-links">
               <a href="eventlist">Events</a>
-              <a href="alumni">Alumni</a>
+              <!-- <a href="alumni">Alumni</a> -->
               <!-- <a href="soet">SOET</a> -->
-              <!-- <a href="#">Councils & Clubs -->
-              <!-- <div class="council-dropdown">
-                  <a href="#">1</a>
-                  <a href="#">2</a>
-                  <a href="#">3</a>
-                  <a href="#">4</a>
-                  <a href="#">5</a>
-                </div> -->
-              <!-- </a> -->
+              <div href="#" id="drop-club">Clubs
+                <div class="club-dropdown shadow" id="club-dropdown">
+                  <?php
+                    $drop_club = "SELECT * FROM club_info";
+                    $drop_club_query = mysqli_query($conn,$drop_club);
+
+                    if(mysqli_num_rows($drop_club_query)>0){
+                      while($drop_data = mysqli_fetch_assoc($drop_club_query)){
+                        echo '<a href="clubs?cc_name='.$drop_data["club_name"].'&club_id='.$drop_data["id"].'">'.$drop_data['club_name'].'</a>';
+                      }
+                    }
+                  ?>
+                </div>
+              </div>
               <!-- <a href="#">Register</a> -->
               <a href="about">About</a>
               <a href="contact">Contact us</a>

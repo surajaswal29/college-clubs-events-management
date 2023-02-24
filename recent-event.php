@@ -1,6 +1,10 @@
 <?php
 
-    $recent_event_sql = "SELECT * FROM `event-list` WHERE end_date<CURRENT_DATE() AND organizer = '{$club_name}'";
+    if($_SERVER['SCRIPT_NAME'] == "/hnbguclubs/student-clubs-socities/event-list.php"){
+        $recent_event_sql = "SELECT * FROM `event-list` WHERE end_date<CURRENT_DATE()";
+    }else{
+        $recent_event_sql = "SELECT * FROM `event-list` WHERE end_date<CURRENT_DATE() AND organizer = '{$club_name}'";
+    }
     $recent_event_sql_query = mysqli_query($conn,$recent_event_sql);
 
     if(mysqli_num_rows($recent_event_sql_query)>0){

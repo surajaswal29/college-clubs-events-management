@@ -12,10 +12,10 @@
                 </h2>
                 <?php
                 // development phase
-                if($_SERVER['SCRIPT_NAME'] == '/hnbguclubs/hnbguclubs/club-view.php'){
+                if($_SERVER['SCRIPT_NAME'] == '/hnbguclubs/student-clubs-socities/club-view.php'){
                   $event_view = "SELECT * FROM `event-list` WHERE organizer = '{$_GET['cc_name']}' AND end_date>CURRENT_DATE()";
-                }else if($_SERVER['SCRIPT_NAME'] == "/hnbguclubs/hnbguclubs/event-list.php"){
-                  $event_view = "SELECT * FROM `event-list`";
+                }else if($_SERVER['SCRIPT_NAME'] == "/hnbguclubs/student-clubs-socities/event-list.php"){
+                  $event_view = "SELECT * FROM `event-list` WHERE end_date>CURRENT_DATE()";
                 }
                   
                   $event_output = mysqli_query($conn,$event_view);

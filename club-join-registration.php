@@ -1,5 +1,6 @@
 <?php
   include "master.php";
+  include "header.php";
 
   if(isset($_POST['join'])){
       $club_name=$_POST['club'];

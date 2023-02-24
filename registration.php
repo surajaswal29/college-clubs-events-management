@@ -35,7 +35,7 @@ include "master.php";
         $mail = new PHPMailer(true);
 
           // Server settings
-          $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+          $mail->SMTPDebug = false;                      //Enable verbose debug output
           $mail->isSMTP();                                            //Send using SMTP
           $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
           $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
@@ -95,9 +95,9 @@ include "master.php";
         
           if($mail->send()){
             $sql = "INSERT INTO `users` 
-                    ( `reg_id`, `firstname`, `lastname`, `email`, `phone`, `department`, `year`, `semester`, `roll_no`, `course`, `social`, `aoi`, `role`, `password`, `verified`, `date`) 
+                    ( `reg_id`, `firstname`, `lastname`, `email`, `phone`, `department`, `year`, `semester`, `roll_no`, `course`, `social`, `aoi`, `password`, `verified`, `date`) 
                     VALUES 
-                    ('{$regId}', '{$firstName}', '{$lastName}', '{$email}', '{$phone}','{$dept}','{$year}','{$sem}','{$roll_no}','{$course}','{$social}','{$aoi}','Member', '{$password}',0, '{$date}')";
+                    ('{$regId}', '{$firstName}', '{$lastName}', '{$email}', '{$phone}','{$dept}','{$year}','{$sem}','{$roll_no}','{$course}','{$social}','{$aoi}', '{$password}',0, '{$date}')";
             $result = mysqli_query($conn,$sql);  
 
             if($result){

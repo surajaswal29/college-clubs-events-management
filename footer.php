@@ -15,7 +15,7 @@
                         <a href="https://hnbgu.ac.in/right-to-information">RTI</a>
                     </div>
                     <div class="footer-section">
-                        <h1>Contact</h1>
+                        <h1>Contact Information</h1>
                         <a href="mailto:">councilandclubs@gmail.com</a>
                         <a href="#">+91-7037672652</a>
                         <a href="#">+91-8923229233</a>

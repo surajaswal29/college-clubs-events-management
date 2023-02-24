@@ -7,7 +7,7 @@
       $e_venue = $_POST['event_venue'];
       $s_date = $_POST['start_date'];
       $e_date = $_POST['end_date'];
-      $e_organizer = mysqli_real_escape_string($conn, $_POST['club']);
+      $e_type = $_POST['etype'];
       $description =mysqli_real_escape_string($conn, $_POST['desc']);
       $date = date('Y-m-d');
 
@@ -20,164 +20,147 @@
       $temp_name = $_FILES['event_image']['tmp_name'];
       $image_size = $_FILES['event_image']['size'];  
 
-      $destination = 'upload-image/'.$image_name;
-      if(move_uploaded_file($temp_name, $destination)){
-        $query = "INSERT INTO `event-list` 
-                (`event_name`, `event_venue`, `organizer`, `description`, `start_date`, `end_date`, `event_image`,`event_table`, `date`) 
-                VALUES 
-                ('{$e_name}', '{$e_venue}', '{$e_organizer}', '{$description}', '{$s_date}', '{$e_date}', '{$image_name}','{$table_event}', '{$date}')";
-        $output = mysqli_query($conn,$query);
+      if(isset($_FILES['upi_qr']['name'])){
+        $p_image_name = $_FILES['upi_qr']['name'];
+        $p_file_type = $_FILES['upi_qr']['type'];
+        $p_temp_name = $_FILES['upi_qr']['tmp_name'];
+        $p_image_size = $_FILES['upi_qr']['size'];
 
-        if($output){
-          $createEventTable = 
-          "CREATE TABLE `$table_event`(
-              id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-              joiner_id VARCHAR(100) NOT NULL,
-              joiner_name VARCHAR(100) NOT NULL,
-              joiner_email VARCHAR(100) NOT NULL,
-              joinDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-          )";
-          $createTableQuery = mysqli_query($conn,$createEventTable);
-            if($createTableQuery){
-              redirect('eventmanagement');
-            }
-        }else{
-          echo"Error";
-        }
+        $paymentQR_destination='payment-QR/'.$p_image_name;
+      }
+
+      $destination = 'upload-image/'.$image_name;
+
+      // checking event duplicacy
+      $check_ev = "SELECT * FROM `event-list` WHERE `event_name`='{$e_name}'";
+      $check_ev_query = mysqli_query($conn,$check_ev);
+
+      if(mysqli_num_rows($check_ev_query)>0){
+        echo"<script>alert('Event already exist!')</script>";
+        // redirecting if event already exist
+        redirect('eventmanagement?club='.$_SESSION['club']);
       }else{
-        echo"Error!";
+          // uploading Event Image and payment QR Code
+          if(move_uploaded_file($temp_name, $destination) OR move_uploaded_file($p_temp_name, $paymentQR_destination)){
+            $query = "INSERT INTO `event-list` 
+                    (`event_name`, `event_venue`, `organizer`,`event_type`, `description`, `start_date`, `end_date`, `event_image`,`e_qr`,`event_table`, `date`) 
+                    VALUES 
+                    ('{$e_name}', '{$e_venue}', '{$_SESSION['club']}','{$e_type}', '{$description}', '{$s_date}', '{$e_date}', '{$image_name}','{$p_image_name}','{$table_event}', '{$date}')";
+            $output = mysqli_query($conn,$query);
+
+            if($output){
+              try{
+                $createEventTable = 
+                  "CREATE TABLE `$table_event`(
+                      id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                      joiner_id VARCHAR(100) NOT NULL,
+                      joiner_name VARCHAR(100) NOT NULL,
+                      joiner_email VARCHAR(100) NOT NULL,
+                      joinDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+                  )";
+                $createTableQuery = mysqli_query($conn,$createEventTable);
+                  if($createTableQuery){
+                    echo"<script>alert('Event Created Successfully✅!')</script>";
+                    redirect('eventmanagement?club='.$_SESSION['club']);
+                  }
+              }catch(Exception $e){
+                  echo"<script>alert('Event already exist!')</script>";
+              }
+            }else{
+              echo"Error";
+            }
+          }else{
+            echo"Error!";
+          }
       }
   }
 ?>
 <div class="form-wrap">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="home">Home</a></li>
-                    <li class="breadcrumb-item"><a href="eventdashboard?club=<?php echo $_GET['club']; ?>">eventdashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Event</li>
-                  </ol>
-                </nav>
-      <div class="container shadow">
-        <div class="row">
-          <div class="col-md-12 m-0 p-0 form-heading">
-            <h1 class="btn-block">Add Event</h1>
-          </div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="home">Home</a></li>
+          <li class="breadcrumb-item">
+              <a href="clubs?cc_name=<?php echo $_SESSION['club'].'&club_id='.$_SESSION['club_id'];  ?>"><?php echo $_SESSION['club']; ?></a>
+          </li>
+          <li class="breadcrumb-item"><a href="eventdashboard?club=<?php echo $_SESSION['club'].'&c_id='.$_SESSION['club_id']; ?>">eventdashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Add Event</li>
+        </ol>
+      </nav>
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="side-dash">
+              <li class="bg-primary"><a class="py-2 text-decoration-none text-light d-block m-0" href="eventdashboard?club=<?php echo $_SESSION['club'].'&c_id='.$_SESSION['club_id']; ?>" >Dashboard</a></li>
+              <li class="bg-primary"><a class="py-2 text-decoration-none text-light d-block m-0" href="event-management.php">Add Event</a></li>
+              <!-- <li>Joiner</li> --> 
+            </ul>
         </div>
-        <div
-          class="row justify-content-center align-items-center display-none"
-          id="signup"
-        >
-          <div class="col-md-12">
-            <form action="eventmanagement" method="post" class="form p-md-5" enctype="multipart/form-data">
-              <div class="row">
-                <div class="col-md-6 mt-3 mt-3">
-                  <label for="event_name">Event Name<span class="imp-op">*</span></label>
-                  <input required type="text" name="event_name" class="form-control" />
-                </div>
-                <div class="col-md-6 mt-3 mt-3">
-                  <label for="event_venue">Event Venue<span class="imp-op">*</span></label>
-                  <input required type="text" name="event_venue" class="form-control" />
-                </div>
+        <div class="col-md-10">
+          <div class="container shadow">
+            <div class="row">
+              <div class="col-md-12 m-0 p-0 form-heading">
+                <h1 class="btn-block">Add Event</h1>
               </div>
-              <div class="row">
-                <div class="col-md-6 mt-3">
-                  <label for="start">Start Date<span class="imp-op">*</span></label>
-                  <input required type="date" name="start_date" class="form-control" />
-                </div>
-                <div class="col-md-6 mt-3">
-                  <label for="end">End Date<span class="imp-op">*</span></label>
-                  <input required type="date" name="end_date" class="form-control" />
-                </div>
-                <!-- <input required type="text" class="form-control"> -->
-              </div>
-              <div class="row">
-                <div class="col-md-6 mt-3">
-                    <label for="council"
-                        >Organizer<span
-                        class="imp-op"
-                        >*</span
-                        ></label
-                    >
-                    <select name="club" id="club" class="form-control">
-                        <option value="00">Choose Club</option>
-                        <option
-                        value="Computer Science Club
-                        "
-                        >
-                        Computer Science Club
-                        </option>
-                        <option
-                        value="Electrical Club
-                        "
-                        >
-                        Electrical Club
-                        </option>
-                        <option
-                        value="Robotics and Instrumental Club
-                        "
-                        >
-                        Robotics and Instrumental Club
-                        </option>
-                        <option
-                        value="Designing Club
-                        "
-                        >
-                        Designing Club
-                        </option>
-                        <option
-                        value="Mechanical Club
-                        "
-                        >
-                        Mechanical Club
-                        </option>
-
-                        <option value="Language Club">Language Club</option>
-                        <option value="Reading Club">Reading Club</option>
-                        <option value="Writing Club">Writing Club</option>
-                        <option value="Debate Club">Debate Club</option>
-                        <option value="Drama Club">Drama Club</option>
-                        <option value="Music Club">Music Club</option>
-                        <option value="Poetry Club">Poetry Club</option>
-                        <option value="Script Writing Community">
-                        Script Writing Community
-                        </option>
-                        <option value="Video and Media Club">
-                        Video and Media Club
-                        </option>
-                        <option value="Anchor Community">Anchor Community</option>
-                        <!-- <option value=""></option> -->
-                        <!-- <option value=""></option> -->
-                    </select>
+            </div>
+            <div class="row justify-content-center align-items-center display-none" id="signup">
+              <div class="col-md-12">
+                <form action="eventmanagement" method="post" class="form p-md-5" enctype="multipart/form-data">
+                  <div class="row">
+                    <div class="col-md-6 mt-3 mt-3">
+                      <label for="event_name">Event Name<span class="imp-op">*</span></label>
+                      <input required type="text" name="event_name" class="form-control" />
                     </div>
-                <div class="col-md-6 mt-3">
-                  <label for="event_image"
-                    >Event Image<span class="imp-op">*</span></label
-                  >
-                  <input required type="file" name="event_image" id="event_image" class="form-control" />
-               </div>
-               <div class="row">
-                    <div class="col-md-12 mt-3">
-                      <label for="desc"
-                        >Event Description<span class="imp-op">*</span></label
+                    <div class="col-md-6 mt-3 mt-3">
+                      <label for="event_venue">Event Venue<span class="imp-op">*</span></label>
+                      <input required type="text" name="event_venue" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2 mt-3">
+                      <label for="start">Start Date<span class="imp-op">*</span></label>
+                      <input required type="date" name="start_date" class="form-control" />
+                    </div>
+                    <div class="col-md-2 mt-3">
+                      <label for="end">End Date<span class="imp-op">*</span></label>
+                      <input required type="date" name="end_date" class="form-control" />
+                    </div>
+                    <div class="col-md-2 mt-3">
+                        <label for="council">Paid or Free <span class="imp-op" >*</span ></label>
+                        <select name="etype" id="etype" class="form-control">
+                          <option value="free">Free</option>
+                          <option value="paid">Paid</option>
+                          <!-- <option value=""></option> -->
+                        </select>
+                        </div>
+                    <div class="col-md-3 mt-3">
+                      <label for="event_image"
+                        >Event Image<span class="imp-op">*</span></label
                       >
-                      <textarea class="form-control" id="editor" style="height:300px;" name='desc'></textarea>
+                      <input required type="file" name="event_image" id="event_image" class="form-control" />
+                  </div>
+                  <div class="col-md-3 mt-3 paid-hide" id="qr-img">
+                      <label for="event_image">Payment QR Code<span class="imp-op">*</span></label>
+                      <input  type="file" name="upi_qr" id="qr_img" class="form-control" />
+                  </div>
+                  <div class="row">
+                        <div class="col-md-12 mt-3">
+                          <label for="desc"
+                            >Event Description<span class="imp-op">*</span></label
+                          >
+                          <textarea class="form-control" id="editor" name='desc' placeholder="Mention Details of event. If Event is paid then mention fee details and insert UPI QR Code for Event joining payments"></textarea>
+                        </div>
                     </div>
-                </div>
-              
-              <div class="row">
-                <div class="col-md-12 mb-3">
-                  <button
-                    required
-                    name="submit"
-                    type="submit"
-                    class="form-control mt-4"
-                    >
-                    Submit
-                  </button>
-                </div>
-                
+                  
+                  <div class="row">
+                    <div class="col-md-12 mb-3">
+                      <button required name="submit" type="submit" class="form-control mt-4 bg-success text-light" >
+                        Submit
+                      </button>
+                    </div>
+                    
+                  </div>
+                </form>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
