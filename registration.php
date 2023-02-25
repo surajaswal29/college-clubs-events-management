@@ -101,6 +101,7 @@ include "master.php";
             $result = mysqli_query($conn,$sql);  
 
             if($result){
+              $_SESSION['user_name'] = $firstName;
               $_SESSION['email_address'] = $email;
               $_SESSION['reg_id'] = $regId;
               $_SESSION['otp']=$otpGeneration;

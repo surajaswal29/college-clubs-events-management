@@ -9,6 +9,7 @@ const cPassword = document.querySelector("#c-pass");
 const passErr = document.querySelectorAll("#passError");
 const qrImgae = document.querySelector('#qr-img');
 const eventType=document.querySelector('#etype');
+const crossIcon = document.querySelector('#cross-icon');
 const submitButton = document.querySelector("#reg-submit");
 
 // performing event for every node
@@ -89,13 +90,13 @@ if (filebtn && imgDetails && imgContainer) {
 }
 
 if(document.querySelector('#editor')){
-ClassicEditor.create(document.querySelector("#editor"))
-  .then((editor) => {
-    console.log(editor);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+  ClassicEditor.create(document.querySelector("#editor"))
+    .then((editor) => {
+      console.log(editor);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
 
 if(qrImgae){
@@ -106,4 +107,12 @@ if(qrImgae){
       qrImgae.classList.add('paid-hide');
     }
   });
+}
+
+// mobile menu cross
+if(crossIcon){
+  crossIcon.addEventListener('click',()=>{
+    hamMenuDropdown.classList.add('hide-navbar');
+  })
+
 }

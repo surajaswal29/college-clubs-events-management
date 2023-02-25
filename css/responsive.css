@@ -38,8 +38,6 @@
   .hnbgu-navbar {
     padding: 10px 0px;
     width: 100%;
-    /* position: relative; */
-    /* background-color: #333; */
   }
   .hnbgu-navbar a {
     color: #fff;
@@ -47,7 +45,6 @@
   .bg-md-dark {
     background: #333;
     color: #fff;
-    position: relative;
   }
   .ham-default {
     display: block;
@@ -55,20 +52,33 @@
   .hnbgu-navbar .hnbgu-nav-links {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 70%;
+    height: 100vh;
     position: absolute;
     background: #fff;
+    border: 1px solid #cbcbcb;
     z-index: 100;
     right: 0%;
-    top: 100%;
+    top: 0%;
     padding: 10px;
+  }
+  .hnbgu-nav-links .cross-icon{
+    display: block;
+    position: absolute;
+    top: 1%;
+    left: 2%;
+  }
+  .cross-icon svg{
+    color: #333;
+    font-size: 1.5rem;
   }
   .hnbgu-nav-links a {
     color: #333;
     padding: 5px 0px;
     text-align: center;
+    font-size: 16px;
   }
-  .hide-navbar {
+  .hide-navbar ,.only-desktop{
     display: none !important;
   }
   .main-banner {
@@ -97,7 +107,7 @@
   }
   .owl-next,
   .owl-prev {
-    top: 25%;
+    top: 15%;
   }
   .tcc-img {
     flex-wrap: wrap !important;

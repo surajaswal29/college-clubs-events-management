@@ -7,8 +7,6 @@
    $username = "root";
    $password = "";
    $db_name = "hnb-council";
-
-   echo "We are here";
  }else{
    $username = "u932881995_hnbgucc";
    $password = "Kyojin@12345";
