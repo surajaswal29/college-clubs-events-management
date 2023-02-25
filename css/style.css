@@ -341,7 +341,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
+.breadcrumb li a, .breadcrumb li{
+  font-size:13px;
+}
 .otp-form {
   width: 300px;
   height: auto;

@@ -17,7 +17,7 @@
         <div class="col-md-7 pr-center-1 bg-md-dark">
           <nav class="hnbgu-navbar dp-sb">
             <a href="home"><i class="fas fa-home"></i> <span class="only-desktop">Home</span></a>
-            <div class="pr-center">
+            <div class="d-flex">
               <?php
                   if(isset($_SESSION['user_name'])){
                     echo '<a class="d-md-none" href="profile?id='.$_SESSION['id'].'">Hello, '.$_SESSION['user_name'].' </a>';

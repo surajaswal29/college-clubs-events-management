@@ -48,7 +48,7 @@
     <section id="description" class="container-fluid">
       <div class="row">
         <div class="col-md-9 hnbgu-council-tab">
-          <main class="container">
+          <main class="container p-2">
           <div class="row mt-4 px-md-1">
               <div class="col-md-12">
                 <!-- <h1>Technical and Cultural Societies</h1> -->
