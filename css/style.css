@@ -342,7 +342,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 .breadcrumb li a, .breadcrumb li{
-  font-size:13px;
+  font-size:10px;
 }
 .otp-form {
   width: 300px;
