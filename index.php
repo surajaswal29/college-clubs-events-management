@@ -77,7 +77,7 @@
                                 <div class="col-md-12">
                                   <div class="event-img">
                                     <img
-                                      src="images/register-img.jpg"
+                                      src="https://res.cloudinary.com/dzfc0ty7q/image/upload/v1677478571/register-img_ej6dzf.webp"
                                       alt="event images"
                                     />
                                   </div>
@@ -96,7 +96,7 @@
                                 <div class="col-md-12">
                                   <div class="event-img">
                                     <img
-                                      src="images/register.jpg"
+                                      src="https://res.cloudinary.com/dzfc0ty7q/image/upload/v1677478573/register_nlird8.webp"
                                       alt="event images"
                                     />
                                   </div>
@@ -115,7 +115,7 @@
                                 <div class="col-md-12">
                                   <div class="event-img">
                                     <img
-                                      src="images/list-club.jpg"
+                                      src="https://res.cloudinary.com/dzfc0ty7q/image/upload/v1677478574/list-club_ulvf3r.webp"
                                       alt="event images"
                                     />
                                   </div>
@@ -172,7 +172,7 @@
                                 <div class="col-md-12">
                                   <div class="event-img">
                                     <img
-                                      src="images/commitee.jpeg"
+                                      src="https://res.cloudinary.com/dzfc0ty7q/image/upload/v1677478573/commitee_qgfere.webp"
                                       alt="event images"
                                     />
                                   </div>
@@ -191,7 +191,7 @@
                                 <div class="col-md-12">
                                   <div class="event-img">
                                     <img
-                                      src="images/events.jpg"
+                                      src="https://res.cloudinary.com/dzfc0ty7q/image/upload/v1677478573/events_hhk0fd.webp"
                                       alt="event images"
                                     />
                                   </div>
