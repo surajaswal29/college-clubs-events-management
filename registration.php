@@ -26,7 +26,7 @@ include "master.php";
         // $club=$_POST['club'];
         $social = $_POST['social'];
         $aoi = $_POST['aoi'];
-        $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+        $password = $_POST['password'];
         $date = date('Y-m-d');
 
         // $token = bin2hex(random_bytes(16));
