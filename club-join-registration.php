@@ -12,7 +12,7 @@
       if(mysqli_num_rows($club_register_query)>0){
         $club_table = mysqli_fetch_assoc($club_register_query);
 
-        $list_joined_club = "SELECT * FROM `{$club_table['club_table']}` WHERE joiner_id = '{$_SESSION['reg_id']}'";
+        $list_joined_club = "SELECT * FROM `{$club_table['club_table']}` WHERE joiner_id = '{$_SESSION['register_id']}'";
         $list_joined_club_query = mysqli_query($conn,$list_joined_club);
 
         if(mysqli_num_rows($list_joined_club_query)>0){
@@ -22,12 +22,12 @@
             $insert_club_table = "INSERT INTO `{$club_table['club_table']}` 
                                   (`joiner_id`, `joiner_name`, `joiner_course`,`joiner_role`, `joined_on`) 
                                   VALUES 
-                                  ('{$_SESSION['reg_id']}', '{$_SESSION['joiner_name']}', '{$_SESSION['course']}','Member' ,'{$date}')";
+                                  ('{$_SESSION['register_id']}', '{$_SESSION['user_name']} {$_SESSION['last_name']}', '{$_SESSION['course']}','Member' ,'{$date}')";
             $insert_club_table_query = mysqli_query($conn,$insert_club_table);
 
             if($insert_club_table_query){
               echo "<script> alert('".$club_name." Joined Successfully!'); </script>";
-              redirect('club-join-registration.php');
+              // redirect('club-join-registration.php');
             }
         }
       }

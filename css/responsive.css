@@ -11,6 +11,9 @@
   .hnbgu-logo .brand span {
     font-size: 12px;
   }
+  .breadcrumb li a, .breadcrumb li{
+    font-size:10px;
+  }
   .footer-section {
     width: 100%;
   }
@@ -196,6 +199,28 @@
     height: 200px;
   }
   .event-container-details .table td {
+    font-size: 12px;
+  }
+  table tr,td{
+    font-size: 14px;
+    width: fit-content;
+  }
+  .example-qr{
+    margin: auto;
+    margin-top: 1rem;
+  }
+  .font-00001{
+    font-size: 1.2rem;
+  }
+  .side-dash{
+    display: flex;
+    padding: 0;
+    justify-content: center;
+  }
+  .side-dash li{
+    margin: 2px 5px;
+  }
+  .side-dash li a{
     font-size: 12px;
   }
 }

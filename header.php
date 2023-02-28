@@ -20,7 +20,7 @@
             <div class="d-flex">
               <?php
                   if(isset($_SESSION['user_name'])){
-                    echo '<a class="d-md-none" href="profile?id='.$_SESSION['id'].'">Hello, '.$_SESSION['user_name'].' </a>';
+                    echo '<a class="d-md-none" href="profile?id='.$_SESSION['register_id'].'">Hello, '.$_SESSION['user_name'].' </a>';
                   }
               ?>
               
@@ -55,7 +55,7 @@
                       &nbsp;&nbsp;
                       <?php echo $_SESSION['user_name'] ?>
                       <div class="profile-drop">
-                          <a href="profile?id=<?php echo $_SESSION['id'];?>" class="text-light"><i class="fa-solid fa-id-card"></i> View Profile</a>
+                          <a href="profile?id=<?php echo $_SESSION['register_id'];?>" class="text-light"><i class="fa-solid fa-id-card"></i> View Profile</a>
                           <a href="userlogout" class="text-light bg-secondary"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
                       </div>
                 </div>

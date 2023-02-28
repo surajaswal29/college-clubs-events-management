@@ -4,7 +4,7 @@
 //   $student_id=$_GET['reg_id'];
   $sid=$_GET['id'];
 
-    $sql_student = "SELECT * FROM users WHERE id='{$sid}'";
+    $sql_student = "SELECT * FROM users WHERE reg_id='{$sid}'";
     $output_student = mysqli_query($conn,$sql_student);
 
     if(mysqli_num_rows($output_student)>0){

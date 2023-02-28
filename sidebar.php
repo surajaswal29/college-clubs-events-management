@@ -8,7 +8,7 @@
                 echo "<a href='login'>Register a New Club</a>";
               }
               ?>
-              <a href="registration">Join a Club</a>
+              <a href="<?php echo (isset($_SESSION['user_name']))?'userJoinClub':'login' ?>">Join a Club</a>
               <a href="registeredclubs">Clubs</a>
               <a href="contact">Contact us</a>
               <a href="about">About</a>

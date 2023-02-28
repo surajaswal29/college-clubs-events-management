@@ -12,16 +12,16 @@
 
     if(mysqli_num_rows($check_already_joined_query)>0){
       echo"<script> alert('Event is already joined!'); </script>";
-      redirect('home');
+      redirect('event_view?event_id='.$event_id.'&cc_name='.$_SESSION['club_name']);
     }else{
 
-    $joinEventSQL = "INSERT INTO `$event_tb` (`joiner_id`, `joiner_name`, `joiner_email`, `joinDate`) 
-                     VALUES ('{$_SESSION['register_id'] }','{$_SESSION['user_name'] } {$_SESSION['last_name'] }','{$_SESSION['email'] }','{$date}')";
+    $joinEventSQL = "INSERT INTO `$event_tb` (`joiner_id`, `joiner_name`, `joiner_email`, `verified`,`joinDate`) 
+                     VALUES ('{$_SESSION['register_id'] }','{$_SESSION['user_name'] } {$_SESSION['last_name'] }','{$_SESSION['email'] }',1,'{$date}')";
     $joinEventSQLQuery = mysqli_query($conn,$joinEventSQL);
 
     if($joinEventSQLQuery){
         echo"<script> alert('Event is successfully joined!'); </script>";
-        redirect('home');
+        redirect('event_view?event_id='.$event_id.'&cc_name='.$_SESSION['club_name']);
     }
   }
 ?>

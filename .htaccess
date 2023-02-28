@@ -19,3 +19,4 @@ RewriteRule ^userJoinClub?$ club-join-registration.php
 RewriteRule ^clublist?$ club-list.php
 RewriteRule ^soet?$ soet.php
 RewriteRule ^joinEvent?$ join-event.php
+RewriteRule ^paidEvent?$ e-payment.php

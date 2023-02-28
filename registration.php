@@ -103,7 +103,7 @@ include "master.php";
             if($result){
               $_SESSION['user_name'] = $firstName;
               $_SESSION['email_address'] = $email;
-              $_SESSION['reg_id'] = $regId;
+              $_SESSION['register_id'] = $regId;
               $_SESSION['otp']=$otpGeneration;
               $_SESSION['course']=$course;
               $_SESSION['joiner_name'] = $firstName.' '.$lastName;

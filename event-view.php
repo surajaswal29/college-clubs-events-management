@@ -3,8 +3,8 @@
   include "header.php";
 
   $club_name = $_GET['cc_name'];
-    
   $eventid = $_GET['event_id'];
+
   $sql_query = "SELECT * FROM `event-list` WHERE id= '{$eventid}'";
   $sql_output = mysqli_query($conn,$sql_query);
   $data = mysqli_fetch_assoc($sql_output);
@@ -16,7 +16,16 @@
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="home">Home</a></li>
-                <li class="breadcrumb-item"><a href="eventlist">Events</a></li>
+                <?php
+                  $clubINFO = "SELECT * FROM club_info WHERE club_name='{$club_name}'";
+                  $clubINFOQuery = mysqli_query($conn,$clubINFO);
+
+                  if($clubINFOQuery){
+                    $cDATA = mysqli_fetch_assoc($clubINFOQuery);
+                    echo '<li class="breadcrumb-item"><a href="clubs?cc_name='.$cDATA['club_name'].'&club_id='.$cDATA['id'].'">'.$cDATA['club_name'].'</a></li>';
+                  }
+                ?>
+                <!-- <li class="breadcrumb-item"><a href="eventlist">Events</a></li> -->
                 <li class="breadcrumb-item active" aria-current="page"><?php echo $data['event_name'] ?></li>
               </ol>
             </nav>
@@ -56,12 +65,35 @@
                       <td>Event Type</td>
                       <td style="text-transform:capitalize"><?php echo $data['event_type']; ?></td>
                     </tr>
+                    <?php
+                      if($data['event_type'] === 'paid'){
+                        echo '<tr>
+                                <td>Event Fee</td>
+                                <td>
+                                ₹'.$data['ev_fee'].'
+                                </td>
+                              </tr>';
+                      }
+                    ?>
                   </table>
                   <p>
                   <?php echo $data['description']; ?>
                   </p>
-                 
+                 <?php
+                  $_SESSION['QR-code'] = $data['e_qr'];
+                  $_SESSION['event_fee'] = $data['ev_fee'];
+                  $_SESSION['ev_id'] = $eventid;
+                  $_SESSION['ev_table'] =$data['event_table'];
+                  $_SESSION['club_name'] =$club_name;
+
+                  if($data['event_type'] === 'paid'){
+                    echo '<a href="paidEvent" class="join-event">Proceed to Join</a>';
+                  }else{
+                 ?>
                   <a href="<?php echo (isset($_SESSION['register_id'])) ? 'joinEvent?ev_id='.$eventid.'&ev_tb='.$data['event_table'] : 'login' ?>" class="join-event">Join Now</a>
+                <?php
+                  }
+                ?>
                 </div>
               </div>
             </div>

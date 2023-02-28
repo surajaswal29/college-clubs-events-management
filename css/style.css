@@ -50,13 +50,16 @@ body {
   border-style: none;
 }
 .font-50 {
-  font-size: 50px;
-  font-weight: 600;
+  font-size: 32px;
+  /* font-weight: 600; */
 }
 @media (max-width: 400px) {
   .font-50 {
     font-size: 22px;
   }
+}
+.ck.ck-editor__main>.ck-editor__editable {
+  min-height: 240px;
 }
 .instagram {
   width: 300px;
@@ -342,7 +345,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 .breadcrumb li a, .breadcrumb li{
-  font-size:10px;
+  font-size:13px;
 }
 .otp-form {
   width: 300px;
@@ -352,6 +355,19 @@ input::-webkit-inner-spin-button {
 }
 .hnbgu-clubs {
   transition: all 0.5s, transform 1ms;
+}
+.QR-box{
+  width: 300px;
+  height: 400px;
+}
+.QR-box img{
+  height: 100%;
+  width: 100%;
+}
+.example-qr{
+  width: 300px;
+  height: 200px;
+  
 }
 .hnbgu-clubs-hide {
   display: none;

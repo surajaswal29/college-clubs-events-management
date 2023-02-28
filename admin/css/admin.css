@@ -21,6 +21,37 @@
   justify-content: end;
   align-items: center;
 }
+.club-info-box{
+  width: 20%;
+}
+.club-img{
+  width: 100%;
+  height: 150px;
+}
+.club-info{
+  width: 100%;
+  padding: 4px 0px;
+}
+.club-img img{
+  width: 100%;
+  height: 100%;
+}
+.club-wrap{
+  display: flex;
+  flex-flow: wrap;
+  /* justify-content: space-around; */
+  gap: 20px;
+}
+.club-info h2,p{
+  margin: 0;
+}
+.club-info h2{
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+/* .club-info p{
+  font-size: 0.8rem;
+} */
 .bg-admin-page {
   /* background-color: var(--hnbgu-color); */
   height: 100vh;
