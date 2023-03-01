@@ -38,7 +38,11 @@
               if(mysqli_num_rows($output)>0){
                 $data = mysqli_fetch_assoc($output);
 
+<<<<<<< HEAD
                 
+=======
+//                 if(password_verify($pass,$data['password'])){
+>>>>>>> 7a0906b9112102f032416ff37e1debc8a6b63802
                   $_SESSION['id'] =  $data['id'];
                   // $_SESSION['club_name'] =  $data['club'];
                   $_SESSION['user_name'] =  $data['firstname'];
@@ -49,7 +53,13 @@
                   $_SESSION['isLoggedIn'] = true;
 
                   redirect('registeredclubs');
+<<<<<<< HEAD
                 
+=======
+//                 }else{
+//                   echo"<span class='err'>Error: Username or Password does not match!</span>";
+//                 }
+>>>>>>> 7a0906b9112102f032416ff37e1debc8a6b63802
               }else{
                 echo"<span class='err'>Error: Username or Password does not match!</span>";
               }

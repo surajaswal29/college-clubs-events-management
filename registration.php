@@ -166,6 +166,7 @@ include "master.php";
                       <option value="Department of Information Technology">
                       Information Technology
                       </option>
+<<<<<<< HEAD
                         <option value="Department of Zoology & Biotechnology">
                                       Zoology & Biotechnology
                                     </option>
@@ -183,6 +184,25 @@ include "master.php";
                                     </option>
                         <option value="Department of Business Management">
                                       Business Management
+=======
+						<option value="Department of Zoology & Biotechnology">
+                      		Zoology & Biotechnology
+                      	</option>
+						<option value="Department of Centre for Mountain Tourism & Hospitality Studies">
+                      		Centre for Mountain Tourism & Hospitality Studies
+                      	</option>
+						<option value="Department of Commerce">
+                      		Commerce
+                      	</option>
+						<option value="Department of Horticulture">
+                      		Horticulture
+                      	</option>
+						<option value="Department of Center for Journalism& Mass Mass Com.">
+                      		Center for Journalism& Mass Mass Com.
+                      	</option>
+						<option value="Department of Business Management">
+                      		Business Management
+>>>>>>> 7a0906b9112102f032416ff37e1debc8a6b63802
                       	</option>
 						  
                       <option value="Others">
