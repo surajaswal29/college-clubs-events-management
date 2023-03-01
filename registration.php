@@ -26,7 +26,7 @@ include "master.php";
         // $club=$_POST['club'];
         $social = $_POST['social'];
         $aoi = $_POST['aoi'];
-        $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+        $password = $_POST['password'];
         $date = date('Y-m-d');
 
         // $token = bin2hex(random_bytes(16));
@@ -61,29 +61,6 @@ include "master.php";
             <p>Thanks & Regards</p>
             <p>HNBGU Clubs</p>
           </div>';
-          // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-      
-          // $to = $email;
-          // $subject = "Email Verification";
-          
-          // $message = "
-          // <html>
-          // <head>
-          // <title>Email Verification</title>
-          // </head>
-          // <body>
-          // <p>Click on the link provided below to verify your email address and submit your application form.</p>
-          // <a href='http://localhost/hnbgu-councils-clubs/verification?regid=".$regId."'>Click Here</a>
-          // </body>
-          // </html>
-          // ";
-          
-          // // Always set content-type when sending HTML email
-          // $headers = "MIME-Version: 1.0" . "\r\n";
-          // $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-          
-          // // More headers
-          // $headers .= 'From: <saswal086@gmail.com>' . "\r\n";
 
         $sql_1 = "SELECT * FROM users WHERE email = '{$email}'";
         $output_1 = mysqli_query($conn,$sql_1);
@@ -101,12 +78,15 @@ include "master.php";
             $result = mysqli_query($conn,$sql);  
 
             if($result){
+              // $_SESSION['isLoggedIn'] = false;
               $_SESSION['user_name'] = $firstName;
+              $_SESSION['last_name'] = $lastName;
               $_SESSION['email_address'] = $email;
               $_SESSION['register_id'] = $regId;
               $_SESSION['otp']=$otpGeneration;
               $_SESSION['course']=$course;
               $_SESSION['joiner_name'] = $firstName.' '.$lastName;
+
               redirect('verifyemail.php');
             }else{
               die();
@@ -186,6 +166,25 @@ include "master.php";
                       <option value="Department of Information Technology">
                       Information Technology
                       </option>
+                        <option value="Department of Zoology & Biotechnology">
+                                      Zoology & Biotechnology
+                                    </option>
+                        <option value="Department of Centre for Mountain Tourism & Hospitality Studies">
+                                      Centre for Mountain Tourism & Hospitality Studies
+                                    </option>
+                        <option value="Department of Commerce">
+                                      Commerce
+                                    </option>
+                        <option value="Department of Horticulture">
+                                      Horticulture
+                                    </option>
+                        <option value="Department of Center for Journalism& Mass Mass Com.">
+                                      Center for Journalism& Mass Mass Com.
+                                    </option>
+                        <option value="Department of Business Management">
+                                      Business Management
+                      	</option>
+						  
                       <option value="Others">
                       Others
                       </option>

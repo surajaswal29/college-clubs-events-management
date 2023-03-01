@@ -22,7 +22,21 @@
   align-items: center;
 }
 .club-info-box{
-  width: 20%;
+  width: 300px;
+}
+@media (max-width:576px) {
+  .club-info-box{
+    width: 350px;
+  }
+  .nav{
+    flex-wrap: nowrap;
+    overflow: auto;
+    margin-top: 1rem;
+  }
+  .nav .nav-link{
+    /* width: 200px; */
+    font-size: 12px;
+  }
 }
 .club-img{
   width: 100%;

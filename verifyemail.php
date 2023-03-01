@@ -6,9 +6,10 @@
         $inputOTP = intval($_POST['otp']);
 
         if($_SESSION['otp'] === $inputOTP){
-            $verify_user = "UPDATE `users` SET `verified` = '1' WHERE `reg_id` = '{$_SESSION['reg_id']}'";
+            $verify_user = "UPDATE `users` SET `verified` = '1' WHERE `reg_id` = '{$_SESSION['register_id']}'";
             $verify_user_query = mysqli_query($conn,$verify_user);
             if($verify_user_query){
+                $_SESSION['isLoggedIn'] = true;
                 echo "<script> alert('User Verified Successfully!') </script>";
                 redirect('club-join-registration.php');
             }          

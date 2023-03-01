@@ -72,7 +72,7 @@
               <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-4">
-                      <a href="<?php echo (isset($_SESSION['user_name']))?'userJoinClub':'login' ?>" class="recent-event-box main-card-box text-decoration-none text-dark">
+                      <a href="<?php echo (isset($_SESSION['isLoggedIn']))?'userJoinClub':'login' ?>" class="recent-event-box main-card-box text-decoration-none text-dark">
                               <div class="row">
                                 <div class="col-md-12">
                                   <div class="event-img">
@@ -91,7 +91,7 @@
                     </div>
 
                     <div class="col-md-4">
-                      <a href="<?php echo (isset($_SESSION['user_name']))?'clubregistration':'login' ?>" class="recent-event-box main-card-box text-decoration-none text-dark">
+                      <a href="<?php echo (isset($_SESSION['isLoggedIn']))?'clubregistration':'login' ?>" class="recent-event-box main-card-box text-decoration-none text-dark">
                               <div class="row">
                                 <div class="col-md-12">
                                   <div class="event-img">

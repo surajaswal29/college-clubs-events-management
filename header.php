@@ -48,7 +48,7 @@
                 <a href="about">About</a>
                 <a href="contact">Contact us</a>
                 <?php
-                if(isset($_SESSION['user_name'])){
+                if(isset($_SESSION['isLoggedIn'])){
                 ?>
                     <div href='#' class='profile-btn'>
                       <i class="fa-solid fa-user"></i>

@@ -23,9 +23,9 @@
             <div class="contact border">
               <h2>Contact</h2>
               <!-- <span>Contact Number</span><br /> -->
-              <span>Phone: +91-7535868150</span><br />
+              <span>Phone: +91-7037672652</span><br />
               <!-- <span>Email Address</span><br /> -->
-              <span>Email: surajaswal.dev@gmail.com</span>
+              <span>Email: councilandclubs@gmail.com</span>
             </div>
           </div>
           <div class="col-md-4 p-3">

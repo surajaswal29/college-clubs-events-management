@@ -28,14 +28,7 @@
 
                     $count_student_notification = mysqli_num_rows($student_notification_query);
                 ?>
-                <a class="nav-link btn mx-2 text-light" href="add-student.php">Add Student
-
-                <?php
-                    if($count_student_notification>0){
-                        echo "<sup class='text-danger fw-bold bg-light px-1 rounded-circle'>".$count_student_notification."</sup>";
-                    }
-                    ?>
-                </a>
+                
                 <?php 
                     $club_notification = "SELECT * FROM club_info WHERE verify = 0";
                     $club_notification_query = mysqli_query($conn,$club_notification);

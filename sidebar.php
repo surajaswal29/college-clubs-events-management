@@ -2,13 +2,13 @@
           <div class="useful-links">
               <h4>See also</h4>
               <?php
-              if(isset($_SESSION['user_name'])){
+              if(isset($_SESSION['isLoggedIn'])){
                 echo "<a href='clubregistration'>Register a New Club</a>";
               }else{
                 echo "<a href='login'>Register a New Club</a>";
               }
               ?>
-              <a href="<?php echo (isset($_SESSION['user_name']))?'userJoinClub':'login' ?>">Join a Club</a>
+              <a href="<?php echo (isset($_SESSION['isLoggedIn']))?'userJoinClub':'login' ?>">Join a Club</a>
               <a href="registeredclubs">Clubs</a>
               <a href="contact">Contact us</a>
               <a href="about">About</a>
