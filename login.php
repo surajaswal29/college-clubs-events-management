@@ -32,7 +32,7 @@
               $email = $_POST['email'];
               $pass = $_POST['password'];
 
-              $query = "SELECT * FROM `users` WHERE email = '{$email}' AND verified='1'";
+              $query = "SELECT * FROM `users` WHERE email = '{$email}' AND password='{$pass}' AND verified='1'";
               $output = mysqli_query($conn,$query);
 
               if(mysqli_num_rows($output)>0){
