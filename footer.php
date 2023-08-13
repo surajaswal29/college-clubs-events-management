@@ -17,9 +17,7 @@
                     <div class="footer-section">
                         <h1>Contact Information</h1>
                         <a href="mailto:">councilandclubs@gmail.com</a>
-                        <a href="#">+91-7037672652</a>
-                        <a href="#">+91-8923229233</a>
-                        <a href="#">+91-7088794524</a>
+                        
                     </div>
                     <div class="footer-section">
                       <h1>Councils & Clubs</h1>
@@ -61,7 +59,7 @@
                     <a href="https://github.com/surajaswal29">Developer Information</a>
                 </div>
                 <div class="last-box">
-                    <a href="#">&copy; Copyright <?php echo date('Y'); ?> https://hnbguclubs.live</a>
+                    <a href="#">&copy; Copyright <?php echo date('Y'); ?></a>
                 </div>
             </div>
         </div>

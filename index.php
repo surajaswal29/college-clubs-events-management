@@ -77,7 +77,7 @@
                                 <div class="col-md-12">
                                   <div class="event-img">
                                     <img
-                                      src="https://res.cloudinary.com/dzfc0ty7q/image/upload/v1677478571/register-img_ej6dzf.webp"
+                                      src="https://cdn.eduadvisor.my/articles/2020/09/Reasons-to-Join-Uni-Clubs-Leadership.png"
                                       alt="event images"
                                     />
                                   </div>
@@ -96,7 +96,7 @@
                                 <div class="col-md-12">
                                   <div class="event-img">
                                     <img
-                                      src="https://res.cloudinary.com/dzfc0ty7q/image/upload/v1677478573/register_nlird8.webp"
+                                      src="https://www.hillsdale.edu/wp-content/uploads/2016/08/Writing.png"
                                       alt="event images"
                                     />
                                   </div>
@@ -115,7 +115,7 @@
                                 <div class="col-md-12">
                                   <div class="event-img">
                                     <img
-                                      src="https://res.cloudinary.com/dzfc0ty7q/image/upload/v1677478574/list-club_ulvf3r.webp"
+                                      src="https://media.istockphoto.com/id/1138844016/photo/overhead-view-on-business-people-around-desk.jpg?s=612x612&w=0&k=20&c=51FcFfIMkgceDXTG2lI8qDOJ6n09KQLcGqgojrzC8co="
                                       alt="event images"
                                     />
                                   </div>
@@ -153,7 +153,7 @@
                                 <div class="col-md-12">
                                   <div class="event-img">
                                     <img
-                                      src="images/rule.jpg"
+                                      src="https://media.istockphoto.com/id/1407973573/photo/magnifier-focuses-on-the-word-rules-analyzing-or-following-the-rules.webp?b=1&s=170667a&w=0&k=20&c=8ILJew5zUSOHAFllJ79BD-qGszE3Adkw6Ko0fS8gSLQ="
                                       alt="event images"
                                     />
                                   </div>
@@ -172,7 +172,7 @@
                                 <div class="col-md-12">
                                   <div class="event-img">
                                     <img
-                                      src="https://res.cloudinary.com/dzfc0ty7q/image/upload/v1677478573/commitee_qgfere.webp"
+                                      src="https://artisthubhq.com/wp-content/uploads/2018/04/ultimate-guide.jpg"
                                       alt="event images"
                                     />
                                   </div>
@@ -191,7 +191,7 @@
                                 <div class="col-md-12">
                                   <div class="event-img">
                                     <img
-                                      src="https://res.cloudinary.com/dzfc0ty7q/image/upload/v1677478573/events_hhk0fd.webp"
+                                      src="https://learnenglish.britishcouncil.org/sites/podcasts/files/RS7990_GettyImages-875599880-hig.jpg"
                                       alt="event images"
                                     />
                                   </div>

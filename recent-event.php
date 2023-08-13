@@ -1,6 +1,6 @@
 <?php
 
-    if($_SERVER['SCRIPT_NAME'] == "/hnbguclubs/student-clubs-socities/event-list.php"){
+    if($_SERVER['SCRIPT_NAME'] == "/test/college-clubs-events-management/event-list.php"){
         $recent_event_sql = "SELECT * FROM `event-list` WHERE end_date<CURRENT_DATE()";
     }else{
         $recent_event_sql = "SELECT * FROM `event-list` WHERE end_date<CURRENT_DATE() AND organizer = '{$club_name}'";

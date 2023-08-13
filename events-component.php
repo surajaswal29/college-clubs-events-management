@@ -11,14 +11,17 @@
                 ?>
                 </h2>
                 <?php
+
+                // echo $_SERVER['SCRIPT_NAME'];
                 // development phase
                 if($_SERVER['SERVER_NAME'] == 'localhost'){
-                    if($_SERVER['SCRIPT_NAME'] == '/hnbguclubs/student-clubs-socities/club-view.php'){
+                    if($_SERVER['SCRIPT_NAME'] == '/test/college-clubs-events-management/club-view.php'){
                       $event_view = "SELECT * FROM `event-list` WHERE organizer = '{$_GET['cc_name']}' AND end_date>CURRENT_DATE()";
-                    }else if($_SERVER['SCRIPT_NAME'] == "/hnbguclubs/student-clubs-socities/event-list.php"){
+                    }else if($_SERVER['SCRIPT_NAME'] == "/test/college-clubs-events-management/event-list.php"){
                       $event_view = "SELECT * FROM `event-list` WHERE end_date>CURRENT_DATE()";
                     }
                 }else{
+                  echo $_SERVER['SCRIPT_NAME'];
                   if($_SERVER['SCRIPT_NAME'] == '/club-view.php'){
                     $event_view = "SELECT * FROM `event-list` WHERE organizer = '{$_GET['cc_name']}' AND end_date>CURRENT_DATE()";
                   }else if($_SERVER['SCRIPT_NAME'] == "/event-list.php"){
